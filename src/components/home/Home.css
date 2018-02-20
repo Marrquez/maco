@@ -1,0 +1,27 @@
+.Home {
+  text-align: center;
+}
+
+.Home-intro {
+  font-size: large;
+}
+
+.btn, .form-control, .navbar-default {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0.5px solid #ccc;
+}
+
+.navbar-default, .dropdown-menu {
+    border: 0;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+@keyframes Home-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
