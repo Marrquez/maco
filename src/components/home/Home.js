@@ -18,26 +18,64 @@ class Home extends Component {
     constructor(){
         super();
         this.state = {
-            name: 'user1'
+            user: {email:'', logged:false, data: {}}
         }
     }
     componentWillMount(){
-        const nameRef = firebase.database().ref().child('object').child('name');
-        nameRef.on('value', (snapshot) => {
-            this.setState({
-                name: snapshot.val()
-            });
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                let newData ={
+                    email:user.email,
+                    logged:true,
+                    data: user
+                };
+                this.setState({user:newData});
+            } else {
+                let newData = {
+                    email:'',
+                    logged:false,
+                    data: {}
+                };
+                this.setState({user:newData});
+            }
+        }.bind(this));
+    }
+    signInUser(params){
+        firebase.auth().createUserWithEmailAndPassword(params.email, params.pswd).then(function(){
+            console.warn("The user was sign in!");
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
+    }
+    signOutUser(params){
+        firebase.auth().signOut().then(function() {
+            console.warn("The user was logged out!");
+        }).catch(function(error) {
+            // An error happened.
+        });
+    }
+    logInUser(params){
+        firebase.auth().signInWithEmailAndPassword(params.email, params.pswd).then(function(){
+            console.warn("The user was logged in!");
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
         });
     }
   render() {
     return (
       <div className="Home">
-          <NavBar></NavBar>
+          <NavBar user={this.state.user} logInUser={this.logInUser.bind(this)}  signInUser={this.signInUser.bind(this)} signOutUser={this.signOutUser.bind(this)}></NavBar>
         <p className="Home-intro">
           To get started, edit <code>src/Home.js</code> and save to reload...
             <i className="fa fa-book" />
         </p>
-          <p>{this.state.name}</p>
+          <p>Hello {this.state.user.email}</p>
       </div>
     );
   }

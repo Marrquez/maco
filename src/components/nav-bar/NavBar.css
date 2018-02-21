@@ -10,6 +10,10 @@
     width: 50px;
 }
 
+.back-link {
+    float: right;
+}
+
 #login-dp{
   min-width: 250px;
   padding: 14px 14px 0;
@@ -58,3 +62,7 @@
     border-top:0 none;
   }
 }
+/**
+* profile
+**/
+
