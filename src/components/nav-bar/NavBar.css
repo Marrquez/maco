@@ -1,5 +1,11 @@
+/**
+* Base
+*/
 .NavBar { }
 
+/**
+* Menu
+*/
 .navbar-brand {
   padding: 0;
   width: 80px;
@@ -10,6 +16,22 @@
     width: 50px;
 }
 
+.nav .fa-angle-down {
+    text-align: center;
+    width: 30px;
+}
+/**
+* theming
+**
+.navbar-inverse {
+    background-color: #424242;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+/**
+* Dropdown
+*/
 .back-link {
     float: right;
 }

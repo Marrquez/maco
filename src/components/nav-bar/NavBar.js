@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../maco-icon.png';
 import './NavBar.css';
+import store from '../../store';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -107,8 +108,13 @@ class NavBar extends Component {
     constructor(props) {
         super();
         this.state = {
-            regUser: false
+            regUser: false//,
+            //username: '33'
         }
+
+        store.subscribe(() => {
+            this.setState({username: store.getState().user1});
+        });
     }
     handleJoinUs(e){
         this.setState({
@@ -175,7 +181,7 @@ class NavBar extends Component {
             </div>;
         }
       return (
-          <nav className="navbar navbar-default navbar-default" role="navigation">
+          <nav className="navbar navbar navbar-default" role="navigation">
               <div className="container-fluid">
                   <div className="navbar-header">
                       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -189,14 +195,17 @@ class NavBar extends Component {
 
                   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul className="nav navbar-nav">
-                          <li><a href="">Link</a></li>
-                          <li><a href="#">Link</a></li>
+                          <li><a href="">About</a></li>
+
                       </ul>
                       <ul className="nav navbar-nav navbar-right">
                           <li className="dropdown" ref={function(el){
                               this.dMenu = el;
                           }.bind(this)}>
-                              <a href="#" className="dropdown-toggle" data-toggle="dropdown">{ this.props.user.logged ? (this.props.user.email) : ("Login") }</a>
+                              <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                                  { this.props.user.logged ? "Welcome " + (this.props.user.email) : ("Login") }
+                                  <i className="fa fa-angle-down" />
+                              </a>
                               <ul id="login-dp" className="dropdown-menu">
                                   <li>
                                       {currentForm}

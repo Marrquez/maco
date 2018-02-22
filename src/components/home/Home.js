@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Home.css';
 import firebase from 'firebase';
 import NavBar from '../nav-bar/NavBar';
+import store from '../../store';
+import { accion1 } from '../../actionCreators';
 
 // Initialize Firebase
 const config = {
@@ -67,6 +69,9 @@ class Home extends Component {
             // ...
         });
     }
+    addElement(){
+        store.dispatch(accion1(345, 446));
+    }
   render() {
     return (
       <div className="Home">
@@ -75,7 +80,7 @@ class Home extends Component {
           To get started, edit <code>src/Home.js</code> and save to reload...
             <i className="fa fa-book" />
         </p>
-          <p>Hello {this.state.user.email}</p>
+          <p onClick={this.addElement.bind(this)}>Hello {this.state.user.email}</p>
       </div>
     );
   }
