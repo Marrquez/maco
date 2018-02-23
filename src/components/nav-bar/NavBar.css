@@ -22,7 +22,7 @@
 }
 /**
 * theming
-**
+**/
 .navbar-inverse {
     background-color: #424242;
 }
@@ -37,7 +37,7 @@
 }
 
 #login-dp{
-  min-width: 250px;
+  min-width: 350px;
   padding: 14px 14px 0;
   overflow:hidden;
 }
@@ -87,4 +87,14 @@
 /**
 * profile
 **/
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
+small {
+    display: block;
+    line-height: 1.428571429;
+    color: #999;
+}
+
+.profile {
+    padding: 10px;
+}

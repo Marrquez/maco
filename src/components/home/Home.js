@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './Home.css';
 import firebase from 'firebase';
 import NavBar from '../nav-bar/NavBar';
+import Footer from '../footer/Footer';
+import Board from '../board/Board';
 import store from '../../store';
-import { accion1 } from '../../actionCreators';
 
 // Initialize Firebase
 const config = {
@@ -69,18 +70,12 @@ class Home extends Component {
             // ...
         });
     }
-    addElement(){
-        store.dispatch(accion1(345, 446));
-    }
   render() {
     return (
       <div className="Home">
           <NavBar user={this.state.user} logInUser={this.logInUser.bind(this)}  signInUser={this.signInUser.bind(this)} signOutUser={this.signOutUser.bind(this)}></NavBar>
-        <p className="Home-intro">
-          To get started, edit <code>src/Home.js</code> and save to reload...
-            <i className="fa fa-book" />
-        </p>
-          <p onClick={this.addElement.bind(this)}>Hello {this.state.user.email}</p>
+          <Board />
+          <Footer />
       </div>
     );
   }

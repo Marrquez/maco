@@ -3,6 +3,35 @@ import logo from '../../maco-icon.png';
 import './NavBar.css';
 import store from '../../store';
 
+class Profile extends Component {
+    constructor(props) {
+        super();
+        this.state = { };
+    }
+    render(){
+        return <div className="well-sm">
+            <div className="row">
+                <div className="col-sm-6 col-md-4">
+                    <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg" alt="" className="img-rounded img-responsive" />
+                </div>
+                <div className="col-sm-6 col-md-8">
+                    <h4>
+                        Bhaumik Patel</h4>
+                    <small><cite title="San Francisco, USA">San Francisco, USA <i className="glyphicon glyphicon-map-marker">
+                    </i></cite></small>
+                    <p>
+                        <i className="glyphicon glyphicon-envelope"></i>email@example.com
+                        <br />
+                        <i className="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                        <br />
+                        <i className="glyphicon glyphicon-gift"></i>June 02, 1988
+                    </p>
+                </div>
+            </div>
+        </div>;
+    }
+}
+
 class LoginForm extends Component {
     constructor(props) {
         super();
@@ -150,10 +179,11 @@ class NavBar extends Component {
   render() {
         var currentForm = null;
         if(this.props.user.logged){
-            currentForm = <div className="row">
-                <div className="col-md-12">
+            currentForm = <div className="row profile">
+                <div className="col-xs-12 col-sm-12 col-md-12">
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
-                    <a onClick={this.signOutUser.bind(this)}>Logout</a>
+                    <Profile />
+                    <a className="back-link" onClick={this.signOutUser.bind(this)}>Logout</a>
                 </div>
             </div>;
         }else if(this.state.regUser){
@@ -181,7 +211,7 @@ class NavBar extends Component {
             </div>;
         }
       return (
-          <nav className="navbar navbar navbar-default" role="navigation">
+          <nav className="navbar navbar-inverse navbar-default" role="navigation">
               <div className="container-fluid">
                   <div className="navbar-header">
                       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
