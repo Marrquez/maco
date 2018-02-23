@@ -24,7 +24,7 @@ class Board extends Component {
           <div>
               <p className="Home-intro">
                   To get started, edit <code>src/Home.js</code> and save to reload...
-                  <i className="fa fa-book" />
+                  <i onClick={this.props.updateUser} className="fa fa-book" />
               </p>
               <p onClick={this.addElement.bind(this)}>Hello...</p>
           </div>

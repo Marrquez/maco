@@ -15,16 +15,10 @@ class Profile extends Component {
                     <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg" alt="" className="img-rounded img-responsive" />
                 </div>
                 <div className="col-sm-6 col-md-8">
-                    <h4>
-                        Bhaumik Patel</h4>
-                    <small><cite title="San Francisco, USA">San Francisco, USA <i className="glyphicon glyphicon-map-marker">
-                    </i></cite></small>
+                    <h4>Bhaumik Patel</h4>
                     <p>
-                        <i className="glyphicon glyphicon-envelope"></i>email@example.com
+                        <i className="glyphicon glyphicon-envelope"></i>{this.props.user.data.email}
                         <br />
-                        <i className="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
-                        <br />
-                        <i className="glyphicon glyphicon-gift"></i>June 02, 1988
                     </p>
                 </div>
             </div>
@@ -182,7 +176,7 @@ class NavBar extends Component {
             currentForm = <div className="row profile">
                 <div className="col-xs-12 col-sm-12 col-md-12">
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
-                    <Profile />
+                    <Profile user={this.props.user} />
                     <a className="back-link" onClick={this.signOutUser.bind(this)}>Logout</a>
                 </div>
             </div>;
