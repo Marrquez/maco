@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Board.css';
 import store from '../../store';
 import { accion1 } from '../../actionCreators';
+import Profiles from '../profiles/Profiles';
 
 class Board extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class Board extends Component {
   render() {
       return (
           <div>
+              <Profiles></Profiles>
               <p className="Home-intro">
                   To get started, edit <code>src/Home.js</code> and save to reload...
                   <i onClick={this.props.updateUser} className="fa fa-book" />
