@@ -35,7 +35,7 @@ class Profile extends Component {
                   </cite>
               </small>
               <p className="short-description">
-                  Hombre sencillo y trabajador, esta es una descripcion corta para un texto de 140 caracteres. Aqui hay 100. Aquí hay 106.
+                  Hombre sencillo y trabajador, esta es una descripcion corta para un texto de 140 caracteres. Aqui hay 100. Aquí hay 106 y un poquito más, como 140....
               </p>
           </div>
       );
