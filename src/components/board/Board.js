@@ -22,10 +22,9 @@ class Board extends Component {
     }
   render() {
       return (
-          <div>
+          <div className="container">
               <Profiles></Profiles>
               <p className="Home-intro">
-                  To get started, edit <code>src/Home.js</code> and save to reload...
                   <i onClick={this.props.updateUser} className="fa fa-book" />
               </p>
               <p onClick={this.addElement.bind(this)}>Hello...</p>

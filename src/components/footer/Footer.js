@@ -17,7 +17,9 @@ class Footer extends Component {
     componentDidUpdate(prevProps, prevState){ }
   render() {
       return (
-          <span>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></span>
+          <div className="Footer">
+              <span>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></span>
+          </div>
       );
   }
 }

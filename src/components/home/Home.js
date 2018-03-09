@@ -86,17 +86,18 @@ class Home extends Component {
             console.log("El usuario se actualizó correctamente");
         });
     }
-    followUser(){
+    /*followUser(){
         firebase.database().ref('users/' + this.state.user.data.uid).on('value', function(snapshot){
             console.log(snapshot);
         });
     }
+    <span onClick={this.followUser.bind(this)}>follow user activity</span>
+    */
   render() {
     return (
       <div className="Home">
           <NavBar user={this.state.user} logInUser={this.logInUser.bind(this)}  signInUser={this.signInUser.bind(this)} signOutUser={this.signOutUser.bind(this)}></NavBar>
           <Board updateUser={this.updateUser.bind(this)} />
-          <span onClick={this.followUser.bind(this)}>follow user activity</span>
           <Footer />
       </div>
     );

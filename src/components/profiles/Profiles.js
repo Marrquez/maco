@@ -3,12 +3,12 @@ import './Profiles.css';
 import store from '../../store';
 import Profile from '../profile/Profile';
 
-var itinerario = [
-    {id:0, ciudad: 'Popayán', dias: 8},
-    {id:1,ciudad: 'Cali', dias: 5},
-    {id:2,ciudad: 'Medellín', dias: 6},
-    {id:3,ciudad: 'Popayán', dias: 8},
-    {id:4,ciudad: 'Bogotá', dias: 10}
+var users = [
+    {id:0, name: 'Juan', age: 28, desc: 'Persona tranquila', mainPic: "http://nabeel.co.in/files/bootsnipp/team/5.jpg" },
+    {id:1, name: 'Ana', age: 23, desc: 'Trabajando día a día para ser mejor', mainPic: "http://nabeel.co.in/files/bootsnipp/team/1.jpg" },
+    {id:2, name: 'Paula', age: 34, desc: 'Feliz por todo lo que me está pasando', mainPic: "http://nabeel.co.in/files/bootsnipp/team/2.jpg" },
+    {id:3, name: 'Juan Pablo', age: 18, desc: 'Escribiendo estupideces desde tiempos inmemorables', mainPic: "" },
+    {id:4, name: 'Jairo Andres', age: 38, desc: 'Descomplicado, Caucano.', mainPic: "http://nabeel.co.in/files/bootsnipp/team/7.jpg" },
 ];
 
 class Profiles extends Component {
@@ -26,9 +26,9 @@ class Profiles extends Component {
     componentDidUpdate(prevProps, prevState){ }
   render() {
       return (
-          <div>
-              { itinerario.map(function(resultado) {
-                  return <Profile  key={resultado.id}></Profile>;
+          <div className="container-fluid">
+              { users.map(function(user) {
+                  return <Profile  key={user.id} data={user}></Profile>;
               }.bind(this)) }
           </div>);
   }
