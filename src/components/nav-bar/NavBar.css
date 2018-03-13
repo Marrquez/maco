@@ -98,3 +98,46 @@ small {
 .profile {
     padding: 10px;
 }
+
+.user-profile-data .form-group {
+    padding: 0 10px 0 0;
+    position: relative;
+}
+
+.user-profile-data .form-group .form-control {
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0 10px 0 30px;
+}
+
+.user-profile-data .form-group .form-control.user-name {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+.user-profile-data .form-group .form-control.user-description {
+    font-size: 10px;
+    min-height: 80px;
+    padding: 10px 5px 5px 30px;
+}
+
+.user-profile-data .form-group .form-control:focus {
+    border: 0.5px solid #ccc;
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.user-profile-data i {
+    height: 34px;
+    left: 0;
+    line-height: 34px;
+    position: absolute;
+    text-align:center;
+    width: 30px;
+}

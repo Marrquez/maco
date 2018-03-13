@@ -8,18 +8,79 @@ class Profile extends Component {
         super();
         this.state = { };
     }
+    setAge(){
+
+    }
+    setDescription(){
+
+    }
+    setLocation(){
+
+    }
+    setName(){
+
+    }
+    setTwitter(){
+
+    }
     render(){
         return <div className="well-sm">
             <div className="row">
                 <div className="col-sm-6 col-md-4">
                     <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg" alt="" className="img-rounded img-responsive" />
                 </div>
-                <div className="col-sm-6 col-md-8">
-                    <h4>Bhaumik Patel</h4>
-                    <p>
-                        <i className="glyphicon glyphicon-envelope"></i>{this.props.user.data.email}
-                        <br />
-                    </p>
+                <div className="col-sm-6 col-md-8 user-profile-data">
+                    <form className="form" role="form" id="login-nav">
+                        <div className="form-group">
+                            <input type="text"
+                                   className="form-control user-name"
+                                   id="userName"
+                                   placeholder="Anonimous"
+                                   value={this.state.name}
+                                   onChange={this.setName.bind(this)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <i className="fa fa-birthday-cake"></i>
+                            <input type="text"
+                                   className="form-control"
+                                   id="userAge"
+                                   placeholder="Age"
+                                   value={this.state.age}
+                                   onChange={this.setAge.bind(this)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <i className="fa fa-map-marker"></i>
+                            <input type="text"
+                                   className="form-control"
+                                   id="userLocation"
+                                   placeholder="Location"
+                                   value={this.state.location}
+                                   onChange={this.setLocation.bind(this)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <i className="fa fa-twitter"></i>
+                            <input type="text"
+                                   className="form-control"
+                                   id="userTwitter"
+                                   placeholder="Twitter username"
+                                   value={this.state.twitter}
+                                   onChange={this.setTwitter.bind(this)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <i className="fa fa-question"></i>
+                            <textarea type="text"
+                                   className="form-control user-description"
+                                   id="userDescription"
+                                   placeholder="Describe yourself"
+                                   value={this.state.description}
+                                   onChange={this.setDescription.bind(this)}
+                            />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>;
