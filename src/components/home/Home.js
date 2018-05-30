@@ -21,7 +21,8 @@ class Home extends Component {
     constructor(){
         super();
         this.state = {
-            user: {email:'', logged:false, data: {}}
+            user: {email:'', logged:false, data: {}},
+            page: "home"
         }
     }
     componentWillMount(){
@@ -93,11 +94,26 @@ class Home extends Component {
     }
     <span onClick={this.followUser.bind(this)}>follow user activity</span>
     */
+    navigate(view){
+        this.setState({page: view});
+    }
   render() {
+      var currentPage = null;
+      switch(this.state.page) {
+          case "home":
+              currentPage = <Board updateUser={this.updateUser.bind(this)} />;
+              break;
+          case "about":
+              currentPage = <h1>This is the about page</h1>;
+              break;
+          default:
+              currentPage = <Board updateUser={this.updateUser.bind(this)} />;
+              break;
+      }
     return (
       <div className="Home">
-          <NavBar user={this.state.user} logInUser={this.logInUser.bind(this)}  signInUser={this.signInUser.bind(this)} signOutUser={this.signOutUser.bind(this)}></NavBar>
-          <Board updateUser={this.updateUser.bind(this)} />
+          <NavBar user={this.state.user} navigate={this.navigate.bind(this)} logInUser={this.logInUser.bind(this)}  signInUser={this.signInUser.bind(this)} signOutUser={this.signOutUser.bind(this)}></NavBar>
+          {currentPage}
           <Footer />
       </div>
     );

@@ -231,6 +231,9 @@ class NavBar extends Component {
         this.props.signOutUser({});
         this.setState({regUser:false});
     }
+    navigate(view){
+        this.props.navigate(view);
+    }
   render() {
         var currentForm = null;
         if(this.props.user.logged){
@@ -275,13 +278,12 @@ class NavBar extends Component {
                           <span className="icon-bar"></span>
                           <span className="icon-bar"></span>
                       </button>
-                      <a className="navbar-brand" href=""><img src={logo} className="NavBar-logo" alt="logo" /></a>
+                      <a className="navbar-brand" onClick={() => this.navigate("home")}><img src={logo} className="NavBar-logo" alt="logo" /></a>
                   </div>
 
                   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul className="nav navbar-nav">
-                          <li><a href="">About</a></li>
-
+                          <li><a onClick={() => this.navigate("about")}>About</a></li>
                       </ul>
                       <ul className="nav navbar-nav navbar-right">
                           <li className="dropdown" ref={function(el){
