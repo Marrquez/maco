@@ -7,22 +7,37 @@ import firebase from "firebase/index";
 class Profile extends Component {
     constructor(props) {
         super();
-        this.state = { };
+        this.state = {
+            age: '',
+            name: '',
+            description: '',
+            location: ''
+        };
     }
-    setAge(){
-
+    componentWillMount(){
+        this.setState({age: this.props.user.data.age,
+            name: this.props.user.data.name,
+            description: this.props.user.data.description,
+            location: this.props.user.data.location});
     }
-    setDescription(){
-
+    setAge(e){
+        this.setState({age:e.target.value});
     }
-    setLocation(){
-
+    setDescription(e){
+        this.setState({description:e.target.value});
     }
-    setName(){
-
+    setLocation(e){
+        this.setState({location:e.target.value});
+    }
+    setName(e){
+        this.setState({name:e.target.value});
     }
     setTwitter(){
 
+    }
+    updateUser(e){
+        e.preventDefault();
+        this.props.updateUser(this.state.name, this.state.age, this.state.description, this.state.location);
     }
     render(){
         return <div className="well-sm">
@@ -31,7 +46,7 @@ class Profile extends Component {
                     <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg" alt="" className="img-rounded img-responsive" />
                 </div>
                 <div className="col-sm-6 col-md-8 user-profile-data">
-                    <form className="form" role="form" id="login-nav">
+                    <form className="form" onSubmit={this.updateUser.bind(this)} role="form" id="login-nav">
                         <div className="form-group">
                             <input type="text"
                                    className="form-control user-name"
@@ -61,7 +76,7 @@ class Profile extends Component {
                                    onChange={this.setLocation.bind(this)}
                             />
                         </div>
-                        <div className="form-group">
+                        {/*<div className="form-group">
                             <i className="fa fa-twitter"></i>
                             <input type="text"
                                    className="form-control"
@@ -70,7 +85,7 @@ class Profile extends Component {
                                    value={this.state.twitter}
                                    onChange={this.setTwitter.bind(this)}
                             />
-                        </div>
+                        </div>*/}
                         <div className="form-group">
                             <i className="fa fa-question"></i>
                             <textarea type="text"
@@ -80,6 +95,9 @@ class Profile extends Component {
                                    value={this.state.description}
                                    onChange={this.setDescription.bind(this)}
                             />
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className="btn btn-primary btn-block">Save</button>
                         </div>
                     </form>
                 </div>
@@ -291,7 +309,7 @@ class NavBar extends Component {
             currentForm = <div className="row profile">
                 <div className="col-xs-12 col-sm-12 col-md-12">
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
-                    <Profile user={this.props.user} />
+                    <Profile user={this.props.user} updateUser={this.props.updateUser} />
                     <a className="back-link" onClick={this.signOutUser.bind(this)}>Logout</a>
                 </div>
             </div>;

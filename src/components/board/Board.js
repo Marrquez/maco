@@ -24,9 +24,6 @@ class Board extends Component {
       return (
           <div className="container">
               <Profiles></Profiles>
-              <p className="Home-intro">
-                  <i onClick={this.props.updateUser} className="fa fa-book" />
-              </p>
               <p onClick={this.addElement.bind(this)}>Hello...</p>
           </div>
       );
