@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../maco-icon.png';
 import './NavBar.css';
 import store from '../../store';
+import firebase from "firebase/index";
 
 class Profile extends Component {
     constructor(props) {
@@ -99,6 +100,10 @@ class LoginForm extends Component {
         e.preventDefault();
         this.props.logInUser({email:this.state.email, pswd:this.state.pswd});
     }
+    recoverPswd(e){
+        e.preventDefault();
+        this.props.recoverPswd();
+    }
     setEmail(e){
         this.setState({email:e.target.value});
     }
@@ -129,10 +134,45 @@ class LoginForm extends Component {
                        value={this.state.pswd}
                        onChange={this.setPswd.bind(this)}
                 />
-                <div className="help-block text-right"><a href="">Forget the password ?</a></div>
+                <div className="help-block text-right"><a onClick={this.recoverPswd.bind(this)}>Forget the password ?</a></div>
             </div>
             <div className="form-group">
                 <button type="submit" className="btn btn-primary btn-block">Sign in</button>
+            </div>
+        </form>;
+    }
+}
+
+class RecoverForm extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            email: ''
+        };
+    }
+    recoverPswd(e){
+        e.preventDefault();
+        this.props.recoverByEmail(this.state.email);
+    }
+    setEmail(e){
+        this.setState({email:e.target.value});
+    }
+    render(){
+        return <form className="form" role="form" onSubmit={this.recoverPswd.bind(this)} id="login-nav">
+            <div className="form-group">
+                <label className="sr-only" htmlFor="exampleInputEmail2">Email address</label>
+                <input type="email"
+                       className="form-control"
+                       id="exampleInputEmail2"
+                       placeholder="Email address"
+                       required
+                       value
+                       value={this.state.email}
+                       onChange={this.setEmail.bind(this)}
+                />
+            </div>
+            <div className="form-group">
+                <button type="submit" className="btn btn-primary btn-block">Recover password</button>
             </div>
         </form>;
     }
@@ -192,7 +232,7 @@ class NavBar extends Component {
     constructor(props) {
         super();
         this.state = {
-            regUser: false//,
+            regUser: "login"//,
             //username: '33'
         }
 
@@ -202,7 +242,7 @@ class NavBar extends Component {
     }
     handleJoinUs(e){
         this.setState({
-            regUser: true
+            regUser: "signin"
         });
         this.dMenu.className = "dropdown open";
     }
@@ -211,12 +251,12 @@ class NavBar extends Component {
     }
     handleLogin(e){
         this.setState({
-            regUser: false
+            regUser: "login"
         });
         this.dMenu.className = "dropdown open";
     }
     componentDidUpdate(){
-        if(this.state.regUser){
+        if(this.state.regUser === "signin"){
             this.dMenu.className = "dropdown open";
         }
     }
@@ -229,10 +269,21 @@ class NavBar extends Component {
     }
     signOutUser(e){
         this.props.signOutUser({});
-        this.setState({regUser:false});
+        this.setState({regUser:"login"});
     }
     navigate(view){
         this.props.navigate(view);
+    }
+    logInUserWithProvider(providerType){
+        this.props.logInUserWithProvider(providerType);
+        this.dMenu.className = "dropdown open";
+    }
+    recoverPswd(){
+        this.setState({regUser:"recover"});
+    }
+    recoverByEmail(email){
+        this.props.recoverByEmail(email);
+        this.handleLogin();
     }
   render() {
         var currentForm = null;
@@ -244,7 +295,7 @@ class NavBar extends Component {
                     <a className="back-link" onClick={this.signOutUser.bind(this)}>Logout</a>
                 </div>
             </div>;
-        }else if(this.state.regUser){
+        }else if(this.state.regUser === "signin"){
             currentForm = <div className="row">
                 <div className="col-md-12">
                     Register
@@ -252,19 +303,28 @@ class NavBar extends Component {
                     <RegisterForm user={this.props.user} signInUser={this.props.signInUser} />
                 </div>
             </div>;
-        }else{
+        }else if(this.state.regUser === "login"){
             currentForm = <div className="row">
                 <div className="col-md-12">
                     Login via
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
                     <div className="social-buttons">
-                        <a href="#" className="btn btn-tw"><i className="fa fa-twitter" /> Twitter</a>
+                        <a onClick={() => this.logInUserWithProvider("twitter")} className="btn btn-tw"><i className="fa fa-twitter" /> Twitter</a>
+                        <a onClick={() => this.logInUserWithProvider("google")} className="btn btn-gg"><i className="fa fa-google" /> Google</a>
                     </div>
                     or
-                    <LoginForm logInUser={this.props.logInUser} />
+                    <LoginForm logInUser={this.props.logInUser} recoverPswd={this.recoverPswd.bind(this)} />
                 </div>
                 <div className="bottom text-center">
                     New here ? <a onClick={this.handleJoinUs.bind(this)}><b>Join Us</b></a>
+                </div>
+            </div>;
+        }else if(this.state.regUser === "recover"){
+            currentForm = <div className="row">
+                <div className="col-md-12">
+                    Recover password
+                    <a className="back-link" onClick={this.handleLogin.bind(this)}>back</a>
+                    <RecoverForm user={this.props.user} recoverByEmail={this.recoverByEmail.bind(this)} />
                 </div>
             </div>;
         }

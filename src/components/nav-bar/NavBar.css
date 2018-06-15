@@ -58,16 +58,19 @@
 #login-dp .form-group {
   margin-bottom: 10px;
 }
-.btn-fb{
-    background-color:#3b5998;
+.btn-gg{
+    background-color:#DC4B3E;
     color: #fff;
 }
-.btn-fb:hover{
-    background-color:#496ebc;
+.btn-gg:hover{
+    background-color:#F84F40;
     color: #fff;  
 }
 .btn-tw{
     background-color:#55acee;
+    color: #fff;
+}
+.btn-tw .fa-twitter {
     color: #fff;
 }
 .btn-tw:hover{
@@ -140,4 +143,9 @@ small {
     position: absolute;
     text-align:center;
     width: 30px;
+}
+
+.img-rounded {
+    border: 1px solid #ddd;
+    border-radius: 50%;
 }
