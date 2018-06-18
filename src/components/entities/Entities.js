@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Entities.css';
 import store from '../../store';
-import Profile from '../profile/Profile';
+import Entity from '../entity/Entity';
 
 var products = [
     {id:0, name: 'Juan', age: 28, desc: 'Persona tranquila', mainPic: "http://nabeel.co.in/files/bootsnipp/team/5.jpg" },
@@ -28,7 +28,7 @@ class Entities extends Component {
       return (
           <div className="container-fluid">
               { products.map(function(product) {
-                  return <Entity  key={user.id} data={product}></Entity>;
+                  return <Entity  key={product.id} data={product}></Entity>;
               }.bind(this)) }
           </div>);
   }

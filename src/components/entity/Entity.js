@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import './Board.css';
+import './Entity.css';
 import store from '../../store';
-import { accion1 } from '../../actionCreators';
-import Entities from '../entities/Entities';
 
-class Board extends Component {
+class Entity extends Component {
     constructor(props) {
         super();
         this.state = { }
@@ -17,18 +15,14 @@ class Board extends Component {
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
-    addElement(){
-        store.dispatch(accion1(345, 446));
-    }
   render() {
+        let defaultImg = "";
       return (
-          <div className="container">
-              <Entities></Entities>
-                <br/>
-              <p onClick={this.addElement.bind(this)}>Hello...</p>
+          <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12 profile single-card-prifile">
+              This is a card
           </div>
       );
   }
 }
 
-export default Board;
+export default Entity;

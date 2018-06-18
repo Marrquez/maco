@@ -32,10 +32,10 @@ class Home extends Component {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 firebase.database().ref('users/' + user.uid).on('value', function(snapshot){
-                    user.age = snapshot.val().age;
-                    user.description = snapshot.val().description;
-                    user.location = snapshot.val().location;
-                    user.name = snapshot.val().username;
+                    user.age = snapshot.val() ? snapshot.val().age : "";
+                    user.description = snapshot.val() ? snapshot.val().description : "";
+                    user.location = snapshot.val() ? snapshot.val().location : "";
+                    user.name = snapshot.val() ? snapshot.val().username : "";
                     let newData ={
                         email:user.email || user.displayName,
                         logged:true,
@@ -81,6 +81,7 @@ class Home extends Component {
         });
     }
     updateUser(name, age, description, location){
+        var self = this;
         var database = firebase.database();
         let userId = this.state.user.data.uid;
 
@@ -90,7 +91,7 @@ class Home extends Component {
             description : description,
             location: location
         }).then(function(){
-            console.log("El usuario se actualizó correctamente");
+            self.notify("La información se guardó correctamente");
         });
     }
     /*followUser(){
