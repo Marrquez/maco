@@ -25,7 +25,7 @@ class Board extends Component {
           <div className="container">
               <Entities></Entities>
                 <br/>
-              <p onClick={this.addElement.bind(this)}>Hello...</p>
+              <p onClick={this.addElement.bind(this)}>On fire!</p>
           </div>
       );
   }

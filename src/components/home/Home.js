@@ -94,13 +94,6 @@ class Home extends Component {
             self.notify("La información se guardó correctamente");
         });
     }
-    /*followUser(){
-        firebase.database().ref('users/' + this.state.user.data.uid).on('value', function(snapshot){
-            console.log(snapshot);
-        });
-    }
-    <span onClick={this.followUser.bind(this)}>follow user activity</span>
-    */
     navigate(view){
         this.setState({page: view});
     }

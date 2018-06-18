@@ -1,3 +1,6 @@
+/**
+ * End points
+* */
 const accion1 = (valor1, valor2) => {
     //console.log(valor1);
     //console.log(valor2);
@@ -7,4 +10,13 @@ const accion1 = (valor1, valor2) => {
     };
 };
 
-export { accion1/*, accion2*/ };
+const addProduct = (product) => {
+    //console.log(valor1);
+    //console.log(valor2);
+    return {
+        type: "AGREGAR_NUEVO_PRODUCTO",
+        valor: product
+    };
+};
+
+export { accion1, addProduct/*, accion2*/ };

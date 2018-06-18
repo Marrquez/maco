@@ -5,8 +5,11 @@
 }
 
 .card {
-    margin: 5px 0;
+    border: 0.5px solid #a9a9a9;
+    border-radius: 3px;
+    margin: 5px;
     max-width: 200px;
+    padding: 8px 0;
 }
 
 .card-text {
