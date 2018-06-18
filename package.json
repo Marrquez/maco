@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "firebase": "^4.10.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "firebase": "^4.13.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-scripts": "1.1.1",
     "react-toastify": "^4.1.0",
     "redux": "^3.7.2"
