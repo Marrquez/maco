@@ -16,10 +16,15 @@ class Entity extends Component {
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
   render() {
-        let defaultImg = "";
+      let defaultImg = "https://vignette.wikia.nocookie.net/universosteven/images/4/48/Jerez-TV-Incognito.jpg/revision/latest/scale-to-width-down/2000?cb=20160810040810&path-prefix=es";
       return (
-          <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12 profile single-card-prifile">
-              This is a card
+          <div className="card col-6 col-sm-3 sol-lg-2">
+              <img className="card-img-top" src={ this.props.data.mainPic === "" ? defaultImg : this.props.data.mainPic } />
+              <div className="card-body">
+                  <h5 className="card-title">{this.props.data.name}</h5>
+                  <p className="card-text">{this.props.data.desc}</p>
+                  <a className="btn btn-primary">Agregar (0)</a>
+              </div>
           </div>
       );
   }
