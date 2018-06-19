@@ -16,20 +16,58 @@ var products = [
 class Entities extends Component {
     constructor(props) {
         super();
-        this.state = { }
+        this.state = {
+            searchText: '',
+            searchResults: []
+        }
 
         store.subscribe(() => {
             //this.setState({username: store.getState().user1});
         });
     }
     componentDidUpdate(){ }
+    componentDidMount(){
+
+    }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
+    setSearchText(e){
+        this.setState({searchText:e.target.value});
+    }
+    handleKeyPress(e){
+        if(e.key === 'Enter'){
+            this.applySearch();
+        }
+    }
+    applySearch(){
+        var self = this;
+        var results = products.filter(function(ele, index){
+            return ele.name.toLocaleLowerCase().indexOf(self.state.searchText.toLocaleLowerCase()) !== -1;
+        });
+        this.setState({searchResults: results});
+    }
   render() {
       return (
           <div className="container-fluid">
-              { products.map(function(product) {
+              <div className="entities__search-container col-sm-12">
+                  <div className="col-sm-4"></div>
+                  <div className="entities__search-bar col-sm-4">
+                      <i className="fa fa-search"></i>
+                      <input type="text"
+                             id="search-text-input"
+                             placeholder="Type to search..."
+                             value={this.state.searchText}
+                             onChange={this.setSearchText.bind(this)}
+                             onKeyPress={this.handleKeyPress.bind(this)}
+                      />
+                      <button type="button"
+                        className="btn btn-primary"
+                        onClick={this.applySearch.bind(this)}>Search</button>
+                  </div>
+                  <div className="col-sm-4"></div>
+              </div>
+              { this.state.searchResults.map(function(product) {
                   return <Entity  key={product.id} data={product}></Entity>;
               }.bind(this)) }
           </div>);

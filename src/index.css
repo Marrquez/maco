@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+.btn {
+  border: none !important;
+  border-radius: 3px !important;
+}
