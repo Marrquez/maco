@@ -2,3 +2,9 @@
 * Base
 */
 .CreateEntity { }
+
+.create-entity .btn-primary {
+    float: right;
+    margin-right: -15px;
+    width: 80px;
+}

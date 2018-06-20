@@ -51,6 +51,7 @@ class Home extends Component {
                     data: {}
                 };
                 this.setState({user:newData});
+                this.setState({page:'home'});
             }
         }.bind(this));
     }

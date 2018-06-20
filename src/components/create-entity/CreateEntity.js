@@ -41,7 +41,7 @@ class CreateEntity extends Component {
   render() {
       var currentForm = null;
 
-      currentForm = <form className="form col-sm-6" role="form" onSubmit={this.createEntity.bind(this)}>
+      currentForm = <form className="form col-sm-6 create-entity" role="form" onSubmit={this.createEntity.bind(this)}>
           <div className="row">
               <label className="col-sm-4 lbl" htmlFor="inputCity">Nombre</label>
               <input type="text"
