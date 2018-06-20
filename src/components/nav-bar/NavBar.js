@@ -305,6 +305,7 @@ class NavBar extends Component {
     }
   render() {
         var currentForm = null;
+        var userLinks = null;
         if(this.props.user.logged){
             currentForm = <div className="row profile">
                 <div className="col-xs-12 col-sm-12 col-md-12">
@@ -346,6 +347,9 @@ class NavBar extends Component {
                 </div>
             </div>;
         }
+        if(this.props.user.logged){
+            userLinks = <li><a onClick={() => this.navigate("addProduct")}>Nuevo</a></li>;
+        }
       return (
           <nav className="navbar navbar-inverse navbar-default" role="navigation">
               <div className="container-fluid">
@@ -361,6 +365,7 @@ class NavBar extends Component {
 
                   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul className="nav navbar-nav">
+                          {userLinks}
                           <li><a onClick={() => this.navigate("about")}>About</a></li>
                       </ul>
                       <ul className="nav navbar-nav navbar-right">

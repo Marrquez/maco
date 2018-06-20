@@ -19,4 +19,11 @@ const addProduct = (product) => {
     };
 };
 
-export { accion1, addProduct/*, accion2*/ };
+const removeProduct = (product) => {
+  return {
+      type: "REMOVER_PRODUCTO",
+      valor: product
+  };
+};
+
+export { accion1, addProduct, removeProduct/*, accion2*/ };

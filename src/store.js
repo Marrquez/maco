@@ -14,11 +14,26 @@ const addProduct = (state, action) => {
     };
 }
 
+const removeProduct = (state, action) => {
+    for(var i = 0; i < state.products.length; i++) {
+        if(state.products[i].id === action.valor.id){
+            state.products.splice(i, 1);
+            break;
+        }
+    };
+    return {
+        ...state,
+        products: state.products
+    };
+}
+
 const reducer = (state, action) => {
     if(action.type === "EJECUTAR_ACCION_1"){
         accion12(state, action);
     }else if(action.type==='AGREGAR_NUEVO_PRODUCTO'){
         addProduct(state, action);
+    }else if(action.type==='REMOVER_PRODUCTO'){
+        removeProduct(state, action);
     }//else if(action.type==='...'){...}
 
     return state;

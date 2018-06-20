@@ -8,3 +8,24 @@ body {
   border: none !important;
   border-radius: 3px !important;
 }
+
+.lbl {
+  color: #a9a9a9;
+  display: inline-block;
+  font-size: 11px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.textbox, .lbl {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+
+.textbox, .textarea {
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}

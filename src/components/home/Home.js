@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import NavBar from '../nav-bar/NavBar';
 import Footer from '../footer/Footer';
 import Board from '../board/Board';
+import CreateEntity from '../create-entity/CreateEntity';
 import store from '../../store';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -156,7 +157,10 @@ class Home extends Component {
               currentPage = <Board />;
               break;
           case "about":
-              currentPage = <h1>This is the about page</h1>;
+              currentPage = <h1>Follow me on Twitter: @warrdnez</h1>;
+              break;
+          case "addProduct":
+              currentPage = <CreateEntity />;
               break;
           default:
               currentPage = <Board />;
