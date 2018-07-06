@@ -54,6 +54,9 @@ class Entities extends Component {
     setCurrentData(data){
         this.setState({searchResults: data});
     }
+    navigate(view){
+        this.props.navigate(view);
+    }
   render() {
       return (
           <div className="container-fluid">
@@ -69,10 +72,13 @@ class Entities extends Component {
                              onKeyPress={this.handleKeyPress.bind(this)}
                       />
                       <button type="button"
-                        className="btn btn-primary"
+                        className="btn btn-link"
                         onClick={this.applySearch.bind(this)}><i className="fa fa-search"></i></button>
                   </div>
-                  <div className="col-sm-4"></div>
+                  <div className="col-sm-4 entities__actions">
+                      <i onClick={() => this.navigate("getBill")} className="fa fa-file-invoice-dollar"></i>
+                      <span onClick={() => this.navigate("getBill")} className="entities__actions-bill">Facturar</span>
+                  </div>
               </div>
               { this.state.searchResults.map(function(product) {
                   return <Entity  key={product.id} data={product}></Entity>;

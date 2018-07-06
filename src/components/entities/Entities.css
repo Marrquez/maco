@@ -8,6 +8,31 @@
     position: relative;
 }
 
+.entities__actions {
+    height: 35px;
+    padding: 0;
+    position: relative;
+    text-align: right;
+}
+.entities__actions i {
+    color: #008AC4;
+    cursor: pointer;
+    font-size: 20px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    width: 35px;
+}
+
+.entities__actions .entities__actions-bill {
+    bottom: 0;
+    color: #008AC4;
+    cursor: pointer;
+    font-size: 8px;
+    position: absolute;
+    right: 3px;
+}
+
 .entities__search-bar i,
 .entities__search-bar button {
     bottom: 0;
@@ -28,6 +53,10 @@
     padding: 0 10px;
     right: 5px;
     width: 40px;
+}
+
+.entities__search-bar button i {
+    color: #008AC4;
 }
 
 .entities__search-bar input {

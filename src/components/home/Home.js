@@ -5,6 +5,7 @@ import NavBar from '../nav-bar/NavBar';
 import Footer from '../footer/Footer';
 import Board from '../board/Board';
 import CreateEntity from '../create-entity/CreateEntity';
+import Bill from '../bill/Bill';
 import store from '../../store';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -155,7 +156,7 @@ class Home extends Component {
       var currentPage = null;
       switch(this.state.page) {
           case "home":
-              currentPage = <Board />;
+              currentPage = <Board navigate={this.navigate.bind(this)} />;
               break;
           case "about":
               currentPage = <h1>Follow me on Twitter: @warrdnez</h1>;
@@ -163,8 +164,11 @@ class Home extends Component {
           case "addProduct":
               currentPage = <CreateEntity />;
               break;
+          case "getBill":
+              currentPage = <Bill />;
+              break;
           default:
-              currentPage = <Board />;
+              currentPage = <Board navigate={this.navigate.bind(this)} />;
               break;
       }
     return (

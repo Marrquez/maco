@@ -23,7 +23,7 @@ class Board extends Component {
   render() {
       return (
           <div className="container">
-              <Entities></Entities>
+              <Entities navigate={this.props.navigate}></Entities>
           </div>
       );
   }
