@@ -9,6 +9,7 @@
 }
 
 .entities__actions {
+    float: right;
     height: 35px;
     padding: 0;
     position: relative;
@@ -22,6 +23,22 @@
     line-height: 27px;
     text-align: center;
     width: 35px;
+}
+
+.entities__actions .clear i,
+.entities__actions .clear span {
+    color: #C6000C;
+}
+
+.entities__actions > div:hover {
+    opacity: .7;
+}
+
+.entities__actions > div {
+    float: right;
+    min-height: 35px;
+    position: relative;
+    width: 50px;
 }
 
 .entities__actions .entities__actions-bill {

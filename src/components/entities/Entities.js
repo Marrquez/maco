@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Entities.css';
 import store from '../../store';
+import { clearParams } from '../../actionCreators';
 import Entity from '../entity/Entity';
 import axios from 'axios';
 
@@ -63,10 +64,23 @@ class Entities extends Component {
     navigate(view){
         this.props.navigate(view);
     }
+    resetParams(){
+        store.dispatch(clearParams({}));
+    }
   render() {
       var userLinks = null;
       if(this.props.user.logged){
-          userLinks = <div><i onClick={() => this.navigate("getBill")} className="fa fa-file-invoice-dollar"></i><span onClick={() => this.navigate("getBill")} className="entities__actions-bill">Facturar</span></div>;
+          userLinks =
+              <div className="col-sm-4 entities__actions">
+                  <div>
+                      <i onClick={() => this.navigate("getBill")} className="fa fa-file-invoice-dollar"></i>
+                      <span onClick={() => this.navigate("getBill")} className="entities__actions-bill">Facturar</span>
+                  </div>
+                  <div className="clear">
+                      <i onClick={this.resetParams.bind(this)} className="fa fa-redo-alt"></i>
+                      <span onClick={this.resetParams.bind(this)} className="entities__actions-bill">Limpiar</span>
+                  </div>
+              </div>;
       }
       return (
           <div className="container-fluid">
@@ -85,9 +99,7 @@ class Entities extends Component {
                         className="btn btn-link"
                         onClick={this.applySearch.bind(this)}><i className="fa fa-search"></i></button>
                   </div>
-                  <div className="col-sm-4 entities__actions">
-                      {userLinks}
-                  </div>
+                  {userLinks}
               </div>
               { this.state.searchResults.map(function(product) {
                   return <Entity  key={product.id} data={product}></Entity>;

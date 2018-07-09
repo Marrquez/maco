@@ -34,6 +34,14 @@ const removeProduct = (state, action) => {
     };
 }
 
+const clearParams = (state, action) => {
+    state.products = [];
+    return {
+        ...state,
+        products: state.products
+    };
+}
+
 const reducer = (state, action) => {
     if(action.type === "EJECUTAR_ACCION_1"){
         accion12(state, action);
@@ -41,6 +49,8 @@ const reducer = (state, action) => {
         addProduct(state, action);
     }else if(action.type==='REMOVER_PRODUCTO'){
         removeProduct(state, action);
+    }else if(action.type==='RESET_PARAMS'){
+        clearParams(state, action);
     }//else if(action.type==='...'){...}
 
     return state;

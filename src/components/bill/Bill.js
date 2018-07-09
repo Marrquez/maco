@@ -10,7 +10,10 @@ class Bill extends Component {
             products: [],
             quantity: 0,
             amount: 0,
-            date: ''
+            date: '',
+            name: '',
+            nit: '',
+            phone: ''
         }
 
         store.subscribe(() => { });
@@ -29,6 +32,20 @@ class Bill extends Component {
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
+    setName(e){
+        this.setState({name:e.target.value});
+    }
+    setNit(e){
+        this.setState({nit:e.target.value});
+    }
+    setPhone(e){
+        this.setState({phone:e.target.value});
+    }
+    handleKeyPress(e){
+        if(e.key === 'Enter'){
+            e.target.blur()
+        }
+    }
   render() {
       return (
           <div className="container-fluid Bill">
@@ -73,19 +90,40 @@ class Bill extends Component {
                           <tr>
                               <td align="left"><b>Cliente:</b></td>
                               <td align="left" colSpan="5">
-                                  Cristian Olaya
+                                  <input type="text"
+                                         className="form-control client-data"
+                                         id="clientName"
+                                         placeholder="Cliente"
+                                         value={this.state.name}
+                                         onKeyPress={this.handleKeyPress.bind(this)}
+                                         onChange={this.setName.bind(this)}
+                                  />
                               </td>
                           </tr>
                           <tr>
                               <td align="left"><b>NIT:</b></td>
                               <td align="left" colSpan="5">
-                                  4938509843
+                                  <input type="text"
+                                         className="form-control client-data"
+                                         id="clientNit"
+                                         placeholder="ID Cliente"
+                                         value={this.state.nit}
+                                         onKeyPress={this.handleKeyPress.bind(this)}
+                                         onChange={this.setNit.bind(this)}
+                                  />
                               </td>
                           </tr>
                           <tr>
                               <td align="left"><b>Teléfono:</b></td>
                               <td align="left" colSpan="5">
-                                  3003499388
+                                  <input type="text"
+                                         className="form-control client-data"
+                                         id="clientPhone"
+                                         placeholder="Teléfono"
+                                         value={this.state.phone}
+                                         onKeyPress={this.handleKeyPress.bind(this)}
+                                         onChange={this.setPhone.bind(this)}
+                                  />
                               </td>
                           </tr>
                           <tr><td><br /></td></tr>

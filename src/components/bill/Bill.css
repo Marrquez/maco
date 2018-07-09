@@ -25,3 +25,16 @@
 .Bill .detail .total-value {
     background-color: #ddd;
 }
+
+.Bill .info tr .client-data {
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0 3px;
+    width: 50%;
+}
+
+.Bill .info tr .client-data:focus {
+    border-bottom: 1px solid #299999;
+}

@@ -13,7 +13,11 @@ class Entity extends Component {
 
         store.subscribe(() => {
             console.log(store.getState().products);
-        });
+            if(store.getState().products.length === 0){
+                this.props.data.quantity = 0;
+                this.setState({quantity:0});
+            }
+        }).bind(this);
     }
     componentDidUpdate(){ }
     componentDidMount(){

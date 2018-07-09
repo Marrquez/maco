@@ -26,4 +26,11 @@ const removeProduct = (product) => {
   };
 };
 
-export { accion1, addProduct, removeProduct/*, accion2*/ };
+const clearParams = (product) => {
+    return {
+        type: "RESET_PARAMS",
+        valor: product
+    };
+};
+
+export { accion1, addProduct, removeProduct, clearParams/*, accion2*/ };
