@@ -7,38 +7,60 @@ class Bill extends Component {
     constructor(props) {
         super();
         this.state = {
+            products: [],
+            quantity: 0,
+            amount: 0,
+            date: ''
         }
 
         store.subscribe(() => { });
     }
-    componentDidUpdate(){ }
+    componentDidMount(){
+        var products = store.getState().products;
+        var quantity = 0;
+        var amount = 0;
+        var date = new Date().getDate()  + "/" + (new Date().getMonth()+1) + "/" + new Date().getFullYear() + " " + new Date().getHours() + ":" + new Date().getMinutes();
+        products.filter(function(ele, index){
+            quantity += ele.quantity;
+            amount += ele.quantity * ele.price;
+        });
+        this.setState({products: products, quantity: quantity, amount: amount, date:date});
+    }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
   render() {
       return (
-          <div className="container-fluid">
+          <div className="container-fluid Bill">
               <div className="col-sm-2"></div>
               <div className="col-sm-8">
-                  <table className="col-sm-12">
+                  <table className="col-sm-12 info">
                       <tbody>
                           <tr>
                               <td rowSpan="5">
                                   <i className="fa fa-file-invoice-dollar" style={{fontSize: 36}}></i>
                               </td>
                           </tr>
-                          <tr><td align="left" colSpan="3"><h1>Factura de venta</h1></td></tr>
-                          <tr><td align="left">Warrdnez Inc. SAS</td></tr>
                           <tr>
-                              <td align="left">Avenida siempre viva # 123</td>
+                              <td align="left" colSpan="3">
+                                  <h1>Factura de venta</h1>
+                              </td>
+                              <td align="right">
+                                  <button className="btn btn-success">Finalizar</button>
+                                  <button className="btn btn-info"><i className="fa fa-print"></i></button>
+                              </td>
+                          </tr>
+                          <tr><td align="left">{this.props.user.data.name}</td></tr>
+                          <tr>
+                              <td align="left">{this.props.user.data.address}</td>
                               <td></td>
                               <td align="right"><b>Fecha:</b></td>
                               <td align="right" colSpan="2">
-                                  2018 / Jul / 06
+                                  {this.state.date}
                               </td>
                           </tr>
                           <tr>
-                              <td align="left">Bogotá, Colombia</td>
+                              <td align="left">{this.props.user.data.location}</td>
                               <td></td>
                               <td align="right"><b>No.:</b></td>
                               <td align="right" colSpan="2">
@@ -69,60 +91,38 @@ class Bill extends Component {
                           <tr><td><br /></td></tr>
                       </tbody>
                   </table>
-                  <table className="table col-sm-12 table-hover">
+                  <table className="table col-sm-12 table-hover detail">
                       <thead>
                           <tr>
                               <th>ID</th>
                               <th>Nombre</th>
                               <th>Descripción</th>
                               <th>Cant.</th>
-                              <th>Precio u</th>
+                              <th>Valor</th>
                               <th>Total</th>
                           </tr>
                       </thead>
                       <tbody>
-                          <tr>
-                              <td>9827344658</td>
-                              <td align="left">Aretes</td>
-                              <td align="left">Aretes de madera</td>
-                              <td>1</td>
-                              <td align="right">15000</td>
-                              <td align="right">15000</td>
-                          </tr>
-                          <tr>
-                              <td>9827344658</td>
-                              <td align="left">Collar</td>
-                              <td align="left">Collar de oro blanco con acabados en fantasía</td>
-                              <td>6</td>
-                              <td align="right">12500</td>
-                              <td align="right">75000</td>
-                          </tr>
-                          <tr>
-                              <td>557645</td>
-                              <td align="left">Aretes Artic</td>
-                              <td align="left">Aretes de madera</td>
-                              <td>1</td>
-                              <td align="right">16000</td>
-                              <td align="right">16000</td>
-                          </tr>
-                          <tr>
-                              <td>456345</td>
-                              <td align="left">Brazalete</td>
-                              <td align="left">Brazalete de madera</td>
-                              <td>1</td>
-                              <td align="right">11000</td>
-                              <td align="right">11000</td>
-                          </tr>
-                          <tr>
+                          { this.state.products.map(function(product) {
+                              return <tr key={product.id}>
+                                  <td className="col-sm-1">{product.id}</td>
+                                  <td className="col-sm-3" align="left">{product.name}</td>
+                                  <td className="col-sm-5" align="left">{product.description}</td>
+                                  <td className="col-sm-1">{product.quantity}</td>
+                                  <td className="col-sm-1" align="right">${product.price}</td>
+                                  <td className="col-sm-1" align="right">${product.quantity * product.price}</td>
+                              </tr>;
+                          }.bind(this)) }
+                          <tr className="total-label" >
                               <td align="right" colSpan="6"><b>Totales</b></td>
                           </tr>
-                          <tr>
+                          <tr className="total-value" >
+                              <td>- - - - -</td>
+                              <td align="left">- - - - - - -</td>
+                              <td align="left">- - - - - - - - - - - - - - - - - - - - - - - -</td>
+                              <td>{this.state.quantity}</td>
                               <td></td>
-                              <td></td>
-                              <td></td>
-                              <td>8</td>
-                              <td></td>
-                              <td align="right">117000</td>
+                              <td align="right">${this.state.amount}</td>
                           </tr>
                       </tbody>
                   </table>

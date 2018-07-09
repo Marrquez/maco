@@ -1,4 +1,27 @@
 /**
 * Base
 */
-.Bill { }
+.Bill .info i {
+    color: #424242;
+}
+
+.Bill .info button i {
+    color: #fff;
+}
+
+.Bill .info button {
+    margin-left: 5px;
+}
+
+.Bill .detail th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.Bill .detail .total-label {
+    text-transform: uppercase;
+}
+
+.Bill .detail .total-value {
+    background-color: #ddd;
+}

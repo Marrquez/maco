@@ -8,20 +8,20 @@ class Profile extends Component {
     constructor(props) {
         super();
         this.state = {
-            age: '',
+            address: '',
             name: '',
             description: '',
             location: ''
         };
     }
     componentWillMount(){
-        this.setState({age: this.props.user.data.age,
+        this.setState({address: this.props.user.data.address,
             name: this.props.user.data.name,
             description: this.props.user.data.description,
             location: this.props.user.data.location});
     }
-    setAge(e){
-        this.setState({age:e.target.value});
+    setAddress(e){
+        this.setState({address:e.target.value});
     }
     setDescription(e){
         this.setState({description:e.target.value});
@@ -37,7 +37,12 @@ class Profile extends Component {
     }
     updateUser(e){
         e.preventDefault();
-        this.props.updateUser(this.state.name, this.state.age, this.state.description, this.state.location);
+        this.props.updateUser(this.state.name, this.state.address, this.state.description, this.state.location);
+    }
+    handleKeyPress(e){
+        if(e.key === 'Enter'){
+            e.target.blur()
+        }
     }
     render(){
         return <div className="well-sm">
@@ -51,28 +56,31 @@ class Profile extends Component {
                             <input type="text"
                                    className="form-control user-name"
                                    id="userName"
-                                   placeholder="Anonimous"
+                                   placeholder="Company name"
                                    value={this.state.name}
+                                   onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setName.bind(this)}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <i className="fa fa-birthday-cake"></i>
-                            <input type="text"
-                                   className="form-control"
-                                   id="userAge"
-                                   placeholder="Age"
-                                   value={this.state.age}
-                                   onChange={this.setAge.bind(this)}
                             />
                         </div>
                         <div className="form-group">
                             <i className="fa fa-map-marker"></i>
                             <input type="text"
                                    className="form-control"
+                                   id="userAddress"
+                                   placeholder="Address"
+                                   value={this.state.address}
+                                   onKeyPress={this.handleKeyPress.bind(this)}
+                                   onChange={this.setAddress.bind(this)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <i className="fa fa-home"></i>
+                            <input type="text"
+                                   className="form-control"
                                    id="userLocation"
-                                   placeholder="Location"
+                                   placeholder="City"
                                    value={this.state.location}
+                                   onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setLocation.bind(this)}
                             />
                         </div>
@@ -93,6 +101,7 @@ class Profile extends Component {
                                    id="userDescription"
                                    placeholder="Describe yourself"
                                    value={this.state.description}
+                                   onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setDescription.bind(this)}
                             />
                         </div>

@@ -8,17 +8,24 @@ const accion12 = (state, action) => {
 }
 
 const addProduct = (state, action) => {
+    var results = state.products.filter(function(ele, index){
+        if(action.valor.id === ele.id){
+            return ele;
+        }
+    });
     return {
         ...state,
-        products: state.products.push(action.valor)
+        products: results.length > 0 ? state.products : state.products.push(action.valor)
     };
 }
 
 const removeProduct = (state, action) => {
     for(var i = 0; i < state.products.length; i++) {
         if(state.products[i].id === action.valor.id){
-            state.products.splice(i, 1);
-            break;
+            if(state.products[i].quantity === 0){
+                state.products.splice(i, 1);
+                break;
+            }
         }
     };
     return {

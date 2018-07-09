@@ -4,7 +4,13 @@ import store from '../../store';
 import Entity from '../entity/Entity';
 import axios from 'axios';
 
-var products = [ ];
+var products = [
+    {id:1,name:"Hello 1", price: 1000, description: "Desc 1", quantity: 0},
+    {id:2,name:"Hello 2", price: 2000, description: "Desc 2", quantity: 0},
+    {id:3,name:"Hello 3", price: 3000, description: "Desc 3", quantity: 0},
+    {id:4,name:"Hello 4", price: 4000, description: "Desc 4", quantity: 0},
+    {id:5,name:"Hello 5", price: 5000, description: "Desc 5", quantity: 0},
+    ];
 
 class Entities extends Component {
     constructor(props) {
@@ -36,12 +42,12 @@ class Entities extends Component {
     applySearch(){
         var self = this;
         var results = [];
-        if(self.state.searchText){
+        //if(self.state.searchText){
             results = products.filter(function(ele, index){
                 return ele.name.toLocaleLowerCase().indexOf(self.state.searchText.toLocaleLowerCase()) !== -1;
             });
             self.setCurrentData(results);
-        }else if(self.state.searchText === ""){
+        /*}else if(self.state.searchText === ""){
             axios.get('http://localhost:8080/Alfilsoft/Api/v1/Item/items').then(function(response){
                 results = response.data.filter(function(ele, index){
                     ele.quantity = 0;
@@ -49,7 +55,7 @@ class Entities extends Component {
                 });
                 self.setCurrentData(results);
             });
-        }
+        }*/
     }
     setCurrentData(data){
         this.setState({searchResults: data});
@@ -58,6 +64,10 @@ class Entities extends Component {
         this.props.navigate(view);
     }
   render() {
+      var userLinks = null;
+      if(this.props.user.logged){
+          userLinks = <div><i onClick={() => this.navigate("getBill")} className="fa fa-file-invoice-dollar"></i><span onClick={() => this.navigate("getBill")} className="entities__actions-bill">Facturar</span></div>;
+      }
       return (
           <div className="container-fluid">
               <div className="entities__search-container col-sm-12">
@@ -76,8 +86,7 @@ class Entities extends Component {
                         onClick={this.applySearch.bind(this)}><i className="fa fa-search"></i></button>
                   </div>
                   <div className="col-sm-4 entities__actions">
-                      <i onClick={() => this.navigate("getBill")} className="fa fa-file-invoice-dollar"></i>
-                      <span onClick={() => this.navigate("getBill")} className="entities__actions-bill">Facturar</span>
+                      {userLinks}
                   </div>
               </div>
               { this.state.searchResults.map(function(product) {

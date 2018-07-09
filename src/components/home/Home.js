@@ -34,7 +34,7 @@ class Home extends Component {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 firebase.database().ref('users/' + user.uid).on('value', function(snapshot){
-                    user.age = snapshot.val() ? snapshot.val().age : "";
+                    user.address = snapshot.val() ? snapshot.val().address : "";
                     user.description = snapshot.val() ? snapshot.val().description : "";
                     user.location = snapshot.val() ? snapshot.val().location : "";
                     user.name = snapshot.val() ? snapshot.val().username : "";
@@ -83,14 +83,14 @@ class Home extends Component {
             // ...
         });
     }
-    updateUser(name, age, description, location){
+    updateUser(name, address, description, location){
         var self = this;
         var database = firebase.database();
         let userId = this.state.user.data.uid;
 
         database.ref('users/' + userId).set({
             username: name,
-            age: age,
+            address: address,
             description : description,
             location: location
         }).then(function(){
@@ -156,7 +156,7 @@ class Home extends Component {
       var currentPage = null;
       switch(this.state.page) {
           case "home":
-              currentPage = <Board navigate={this.navigate.bind(this)} />;
+              currentPage = <Board navigate={this.navigate.bind(this)} user={this.state.user} />;
               break;
           case "about":
               currentPage = <h1>Follow me on Twitter: @warrdnez</h1>;
@@ -165,10 +165,10 @@ class Home extends Component {
               currentPage = <CreateEntity />;
               break;
           case "getBill":
-              currentPage = <Bill />;
+              currentPage = <Bill user={this.state.user} />;
               break;
           default:
-              currentPage = <Board navigate={this.navigate.bind(this)} />;
+              currentPage = <Board navigate={this.navigate.bind(this)} user={this.state.user} />;
               break;
       }
     return (
