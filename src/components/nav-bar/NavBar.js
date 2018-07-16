@@ -56,7 +56,7 @@ class Profile extends Component {
                             <input type="text"
                                    className="form-control user-name"
                                    id="userName"
-                                   placeholder="Company name"
+                                   placeholder="Nombre"
                                    value={this.state.name}
                                    onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setName.bind(this)}
@@ -255,12 +255,47 @@ class RegisterForm extends Component {
     }
 }
 
+class SearchEnterprise extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            name: ''
+        };
+    }
+    getEnterprise(e){
+        e.preventDefault();
+        this.props.setEnterprise(this.state.name);
+    }
+    setName(e){
+        this.setState({name:e.target.value});
+    }
+    render(){
+        return <form className="form col-sm-8 col-md-8" role="form" onSubmit={this.getEnterprise.bind(this)} id="connect-nav">
+            <div className="form-group">
+                <label className="sr-only" htmlFor="exampleInputEmail2">Nombre</label>
+                <input type="text"
+                       className="form-control"
+                       id="exampleInputEmail2"
+                       placeholder="Nombre"
+                       required
+                       value
+                       value={this.state.name}
+                       onChange={this.setName.bind(this)}
+                />
+            </div>
+            <div className="form-group">
+                <button type="submit" className="btn btn-primary btn-block">Siguiente</button>
+            </div>
+        </form>;
+    }
+}
+
 class NavBar extends Component {
     constructor(props) {
         super();
         this.state = {
-            regUser: "login"//,
-            //username: '33'
+            regUser: "connect",
+            enterprise: ''
         }
 
         store.subscribe(() => {
@@ -296,7 +331,7 @@ class NavBar extends Component {
     }
     signOutUser(e){
         this.props.signOutUser({});
-        this.setState({regUser:"login"});
+        this.setState({regUser:"connect"});
     }
     navigate(view){
         this.props.navigate(view);
@@ -312,6 +347,10 @@ class NavBar extends Component {
         this.props.recoverByEmail(email);
         this.handleLogin();
     }
+    setEnterprise(name){
+        this.props.setEnterprise(name);
+        this.setState({regUser:"login"});
+    }
   render() {
         var currentForm = null;
         var userLinks = null;
@@ -321,6 +360,23 @@ class NavBar extends Component {
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
                     <Profile user={this.props.user} updateUser={this.props.updateUser} />
                     <a className="back-link" onClick={this.signOutUser.bind(this)}>Logout</a>
+                </div>
+            </div>;
+        }else if(this.state.regUser === "connect"){
+            currentForm = <div className="row">
+                <div className="col-md-12">
+                    <center>
+                        <h4>Conecta con tu empresa</h4>
+                    </center>
+                    <br />
+                    <br />
+                    <div className="col-sm-2 col-md-2"></div>
+                    <SearchEnterprise setEnterprise={this.setEnterprise.bind(this)} />
+                    <div className="col-sm-2 col-md-2"></div>
+                    <div className="col-sm-12 col-md-12">
+                        <br />
+                        <br />
+                    </div>
                 </div>
             </div>;
         }else if(this.state.regUser === "signin"){

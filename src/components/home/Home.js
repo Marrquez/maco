@@ -26,7 +26,8 @@ class Home extends Component {
         super();
         this.state = {
             user: {email:'', logged:false, data: {}},
-            page: "home"
+            page: "home",
+            enterprise: ''
         }
     }
     componentWillMount(){
@@ -44,6 +45,12 @@ class Home extends Component {
                         data: user
                     };
                     self.setState({user:newData});
+                    if(snapshot.val() && snapshot.val().enterprise) {
+                        user.enterprise = snapshot.val().enterprise
+                        self.setState({enterprise:user.enterprise});
+                    }else if(self.state.user.logged && user.uid) {
+                        self.updateUser(user.name, user.address, user.description, user.location, true);
+                    }
                 });
             } else {
                 let newData = {
@@ -53,12 +60,13 @@ class Home extends Component {
                 };
                 this.setState({user:newData});
                 this.setState({page:'home'});
+                this.setState({enterprise:''});
             }
         }.bind(this));
     }
     signInUser(params){
         firebase.auth().createUserWithEmailAndPassword(params.email, params.pswd).then(function(){
-            console.warn("The user was sign in!");
+
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -83,7 +91,7 @@ class Home extends Component {
             // ...
         });
     }
-    updateUser(name, address, description, location){
+    updateUser(name, address, description, location, doNothowNotification){
         var self = this;
         var database = firebase.database();
         let userId = this.state.user.data.uid;
@@ -92,13 +100,19 @@ class Home extends Component {
             username: name,
             address: address,
             description : description,
-            location: location
+            location: location,
+            enterprise: self.state.enterprise,
         }).then(function(){
-            self.notify("La información se guardó correctamente");
+            if(!doNothowNotification){
+                self.notify("La información se guardó correctamente");
+            }
         });
     }
     navigate(view){
         this.setState({page: view});
+    }
+    setEnterprise(name){
+        this.setState({enterprise: name});
     }
     notify(msg){
         toast(msg);
@@ -180,6 +194,7 @@ class Home extends Component {
                   signInUser={this.signInUser.bind(this)}
                   signOutUser={this.signOutUser.bind(this)}
                   updateUser={this.updateUser.bind(this)}
+                  setEnterprise={this.setEnterprise.bind(this)}
                   recoverByEmail={this.recoverByEmail.bind(this)}>
           </NavBar>
           {currentPage}
