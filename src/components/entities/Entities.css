@@ -74,6 +74,8 @@
 
 .entities__search-bar button i {
     color: #008AC4;
+    height: 29px;
+    line-height: 29px;
 }
 
 .entities__search-bar input {
