@@ -336,6 +336,10 @@ class NavBar extends Component {
     navigate(view){
         this.props.navigate(view);
     }
+    goBack(view){
+        this.setState({regUser:view});
+        this.dMenu.className = "dropdown open";
+    }
     logInUserWithProvider(providerType){
         this.props.logInUserWithProvider(providerType);
         this.dMenu.className = "dropdown open";
@@ -392,6 +396,7 @@ class NavBar extends Component {
                 <div className="col-md-12">
                     Login via
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
+                    <a className="back-link" onClick={() => this.goBack("connect")}>back</a>
                     <div className="social-buttons">
                         <a onClick={() => this.logInUserWithProvider("twitter")} className="btn btn-tw"><i className="fa fa-twitter" /> Twitter</a>
                         <a onClick={() => this.logInUserWithProvider("google")} className="btn btn-gg"><i className="fa fa-google" /> Google</a>
