@@ -22,7 +22,7 @@ class Footer extends Component {
                   <h5>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></h5>
               </div>
               <div className="col-sm-6 col-md-6 r">
-                  <h5>a 100% Colombian product</h5>
+                  <h5>made in Colombian</h5>
               </div>
           </div>
       );
