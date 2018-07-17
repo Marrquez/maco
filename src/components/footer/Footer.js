@@ -18,7 +18,12 @@ class Footer extends Component {
   render() {
       return (
           <div className="Footer">
-              <span>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></span>
+              <div className="col-sm-6 col-md-6 l">
+                  <h5>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></h5>
+              </div>
+              <div className="col-sm-6 col-md-6 r">
+                  <h5>a 100% Colombian product</h5>
+              </div>
           </div>
       );
   }

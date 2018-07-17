@@ -173,7 +173,7 @@ class Home extends Component {
               currentPage = <Board navigate={this.navigate.bind(this)} user={this.state.user} />;
               break;
           case "about":
-              currentPage = <h1>Follow me on Twitter: @warrdnez</h1>;
+          currentPage = <h4>v1.8102771</h4>;
               break;
           case "addProduct":
               currentPage = <CreateEntity />;
