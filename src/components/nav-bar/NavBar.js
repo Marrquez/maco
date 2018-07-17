@@ -45,10 +45,10 @@ class Profile extends Component {
         }
     }
     render(){
-        return <div className="well-sm">
+        return <div className="NavBar well-sm">
             <div className="row">
                 <div className="col-sm-6 col-md-4">
-                    <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg" alt="" className="img-rounded img-responsive" />
+                    <i alt="" className="fa fa-question-circle img-responsive"></i>
                 </div>
                 <div className="col-sm-6 col-md-8 user-profile-data">
                     <form className="form" onSubmit={this.updateUser.bind(this)} role="form" id="login-nav">
