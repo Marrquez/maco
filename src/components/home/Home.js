@@ -5,8 +5,9 @@ import NavBar from '../nav-bar/NavBar';
 import Footer from '../footer/Footer';
 import Board from '../board/Board';
 import CreateEntity from '../create-entity/CreateEntity';
-import Bill from '../bill/Bill';
 import store from '../../store';
+import { setShop } from '../../actionCreators';
+import Bill from '../bill/Bill';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,8 +27,7 @@ class Home extends Component {
         super();
         this.state = {
             user: {email:'', logged:false, data: {}},
-            page: "home",
-            enterprise: ''
+            page: "home"
         }
     }
     componentWillMount(){
@@ -46,8 +46,8 @@ class Home extends Component {
                     };
                     self.setState({user:newData});
                     if(snapshot.val() && snapshot.val().enterprise) {
-                        user.enterprise = snapshot.val().enterprise
-                        self.setState({enterprise:user.enterprise});
+                        user.enterprise = snapshot.val().enterprise;
+                        store.dispatch(setShop(user.enterprise));
                     }else if(self.state.user.logged && user.uid) {
                         self.updateUser(user.name, user.address, user.description, user.location, true);
                     }
@@ -60,7 +60,7 @@ class Home extends Component {
                 };
                 this.setState({user:newData});
                 this.setState({page:'home'});
-                this.setState({enterprise:''});
+                store.dispatch(setShop({}));
             }
         }.bind(this));
     }
@@ -95,13 +95,14 @@ class Home extends Component {
         var self = this;
         var database = firebase.database();
         let userId = this.state.user.data.uid;
+        console.log(store.getState().shop);
 
         database.ref('users/' + userId).set({
             username: name,
             address: address,
             description : description,
             location: location,
-            enterprise: self.state.enterprise,
+            enterprise: store.getState().shop,
         }).then(function(){
             if(!doNothowNotification){
                 self.notify("La información se guardó correctamente");
@@ -111,8 +112,8 @@ class Home extends Component {
     navigate(view){
         this.setState({page: view});
     }
-    setEnterprise(name){
-        this.setState({enterprise: name});
+    setEnterprise(enterprise){
+        store.dispatch(setShop(enterprise));
     }
     notify(msg){
         toast(msg);

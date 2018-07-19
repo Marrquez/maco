@@ -42,6 +42,13 @@ const clearParams = (state, action) => {
     };
 }
 
+const setShop = (state, action) => {
+    return {
+        ...state,
+        shop: state.shop = action.valor
+    };
+}
+
 const reducer = (state, action) => {
     if(action.type === "EJECUTAR_ACCION_1"){
         accion12(state, action);
@@ -51,9 +58,11 @@ const reducer = (state, action) => {
         removeProduct(state, action);
     }else if(action.type==='RESET_PARAMS'){
         clearParams(state, action);
+    }else if(action.type==='SET_SHOP'){
+        setShop(state, action);
     }//else if(action.type==='...'){...}
 
     return state;
 }
 
-export default createStore(reducer, {products:[],user1: '1', user2:'2'});
+export default createStore(reducer, {products:[],user1: '1', user2:'2',baseUrl:'http://localhost:8080/Alfilsoft/Api/v1/', shop:{}});

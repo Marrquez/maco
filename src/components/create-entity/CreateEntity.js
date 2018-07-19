@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './CreateEntity.css';
 import store from '../../store';
 //import { accion1 } from '../../actionCreators';
+import axios from 'axios';
 
 class CreateEntity extends Component {
     constructor(props) {
@@ -33,10 +34,16 @@ class CreateEntity extends Component {
     }
     createEntity(e){
         e.preventDefault();
-        console.log("Name: " + this.state.name);
-        console.log("Description: " + this.state.description);
-        console.log("Price: " + this.state.price);
-        console.log("Category: " + this.state.category);
+        var newItem = {
+            "name": this.state.name,
+            "shop": store.getState().shop.id,
+            "creationDate": Date.now(),
+            "category": parseInt(this.state.category),
+            "price": parseInt(this.state.price)
+        };
+        axios.post(store.getState().baseUrl + "Item/saveItem/", newItem).then(function(response){
+            console.log(response);
+        });
     }
   render() {
       var currentForm = null;
@@ -50,7 +57,7 @@ class CreateEntity extends Component {
                      value={this.state.name}
                      onChange={this.setName.bind(this)}/>
           </div>
-          <div className="row">
+          {/*<div className="row">
               <label className="col-sm-4 lbl" htmlFor="exampleFormControlTextarea1">Descripción</label>
               <textarea className="col-sm-8 textarea"
                         id="exampleFormControlTextarea1"
@@ -58,7 +65,7 @@ class CreateEntity extends Component {
                         value={this.state.description}
                         onChange={this.setDescription.bind(this)}
               ></textarea>
-          </div>
+          </div>*/}
           <div className="row">
               <label className="col-sm-4 lbl" htmlFor="inputZip">Precio</label>
               <input type="text"

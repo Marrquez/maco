@@ -33,4 +33,11 @@ const clearParams = (product) => {
     };
 };
 
-export { accion1, addProduct, removeProduct, clearParams/*, accion2*/ };
+const setShop = (shop) => {
+    return {
+        type: "SET_SHOP",
+        valor: shop
+    };
+};
+
+export { accion1, addProduct, removeProduct, clearParams, setShop, /*, accion2*/ };

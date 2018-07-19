@@ -3,6 +3,9 @@ import logo from '../../maco-icon.png';
 import './NavBar.css';
 import store from '../../store';
 import firebase from "firebase/index";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Profile extends Component {
     constructor(props) {
@@ -262,9 +265,20 @@ class SearchEnterprise extends Component {
             name: ''
         };
     }
+    notify(msg){
+        toast(msg);
+    }
     getEnterprise(e){
+        var self = this;
         e.preventDefault();
-        this.props.setEnterprise(this.state.name);
+
+        axios.get(store.getState().baseUrl + 'Shop/searchName/' + this.state.name).then(function(response){
+            if(response.data.length > 0){
+                self.props.setEnterprise(response.data[0]);
+            }else{
+                self.notify("La empresa que buscas no se encuentra disponible.");
+            }
+        });
     }
     setName(e){
         this.setState({name:e.target.value});
