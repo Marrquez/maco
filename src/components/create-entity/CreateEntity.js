@@ -38,7 +38,7 @@ class CreateEntity extends Component {
             "name": this.state.name,
             "shop": store.getState().shop.id,
             "creationDate": Date.now(),
-            "category": parseInt(this.state.category),
+            "category": null,//parseInt(this.state.category),
             "price": parseInt(this.state.price)
         };
         axios.post(store.getState().baseUrl + "Item/saveItem/", newItem).then(function(response){
