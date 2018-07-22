@@ -110,7 +110,7 @@ class Entities extends Component {
                     <th className="col-sm-6 col-md-6">Nombre</th>
                     <th className="col-sm-3 col-md-2">Precio</th>
                     <th className="col-sm-3 col-md-2">Cantidad</th>
-                    <th className="col-sm-3 col-md-2">Agregar/Quitar</th>
+                    <th className="col-sm-3 col-md-2">Agregar|Quitar</th>
                 </tr>
               </thead>
               <tbody>
