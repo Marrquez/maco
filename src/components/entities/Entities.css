@@ -15,6 +15,11 @@
     position: relative;
     text-align: right;
 }
+
+.entities__actions.l {
+    float: left;
+}
+
 .entities__actions i {
     color: #008AC4;
     cursor: pointer;
@@ -22,7 +27,7 @@
     height: 27px;
     line-height: 27px;
     text-align: center;
-    width: 35px;
+    width: 50px;
 }
 
 .entities__actions .clear i,
@@ -40,14 +45,21 @@
     position: relative;
     width: 50px;
 }
-
+.entities__actions.l > div{
+    float: left;
+}
 .entities__actions .entities__actions-bill {
     bottom: 0;
     color: #008AC4;
     cursor: pointer;
     font-size: 8px;
     position: absolute;
-    right: 3px;
+    right: 0;
+    width: 50px;
+    text-align: center;
+}
+.entities__actions.l .entities__actions-bill{
+    font-size:10px;
 }
 
 .entities__search-bar i,
@@ -85,4 +97,23 @@
     line-height: 35px;
     padding: 0 45px 0 30px;
     width: 100%;
+}
+
+#trolley .modal-header {
+    height: 50px;
+}
+
+#trolley .modal-header .modal-title {
+    float: left;
+    width: 90%;
+}
+
+#trolley .modal-header .close {
+    float: left;
+    margin-top: 0;
+    width: 9%;
+}
+
+#trolley .modal-body .btn-default.blue i {
+    color: #008AC4;
 }

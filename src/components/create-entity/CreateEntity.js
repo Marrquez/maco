@@ -3,6 +3,8 @@ import './CreateEntity.css';
 import store from '../../store';
 //import { accion1 } from '../../actionCreators';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class CreateEntity extends Component {
     constructor(props) {
@@ -32,7 +34,11 @@ class CreateEntity extends Component {
     setCategory(e){
         this.setState({category:e.target.value});
     }
+    notify(msg){
+        toast(msg);
+    }
     createEntity(e){
+        var self = this;
         e.preventDefault();
         var newItem = {
             "name": this.state.name,
@@ -42,7 +48,15 @@ class CreateEntity extends Component {
             "price": parseInt(this.state.price)
         };
         axios.post(store.getState().baseUrl + "Item/saveItem/", newItem).then(function(response){
-            console.log(response);
+            self.notify("El elemento se agregó correctamente.");
+            self.setState({
+                name: '',
+                description: '',
+                category: '',
+                price: 0
+            });
+        }).catch(error => {
+            self.notify("No se pudo agregar el elemento");
         });
     }
   render() {

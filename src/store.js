@@ -7,6 +7,17 @@ const accion12 = (state, action) => {
     };
 }
 
+const setQuantity = (state, action) => {
+    var quantity = 0;
+    state.products.filter(function(ele, index){
+        quantity += ele.quantity;
+    });
+    return {
+        ...state,
+        totalItems: state.totalItems = quantity
+    };
+}
+
 const addProduct = (state, action) => {
     var results = state.products.filter(function(ele, index){
         if(action.valor.id === ele.id){
@@ -22,8 +33,11 @@ const addProduct = (state, action) => {
 const removeProduct = (state, action) => {
     for(var i = 0; i < state.products.length; i++) {
         if(state.products[i].id === action.valor.id){
-            if(state.products[i].quantity === 0){
-                state.products.splice(i, 1);
+            if(state.products[i].quantity > 0){
+                state.products[i].quantity -= 1;
+                if(state.products[i].quantity === 0){
+                    state.products.splice(i, 1);
+                }
                 break;
             }
         }
@@ -54,10 +68,13 @@ const reducer = (state, action) => {
         accion12(state, action);
     }else if(action.type==='AGREGAR_NUEVO_PRODUCTO'){
         addProduct(state, action);
+        setQuantity(state, action);
     }else if(action.type==='REMOVER_PRODUCTO'){
         removeProduct(state, action);
+        setQuantity(state, action);
     }else if(action.type==='RESET_PARAMS'){
         clearParams(state, action);
+        setQuantity(state, action);
     }else if(action.type==='SET_SHOP'){
         setShop(state, action);
     }//else if(action.type==='...'){...}
@@ -65,4 +82,4 @@ const reducer = (state, action) => {
     return state;
 }
 
-export default createStore(reducer, {products:[],user1: '1', user2:'2',baseUrl:'http://localhost:8080/Alfilsoft/Api/v1/', shop:{}});
+export default createStore(reducer, {products:[],totalItems: 0, user1: '1', user2:'2',baseUrl:'http://localhost:8080/Alfilsoft/Api/v1/', shop:{}});

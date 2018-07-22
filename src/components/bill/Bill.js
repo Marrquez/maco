@@ -20,14 +20,12 @@ class Bill extends Component {
     }
     componentDidMount(){
         var products = store.getState().products;
-        var quantity = 0;
         var amount = 0;
         var date = new Date().getDate()  + "/" + (new Date().getMonth()+1) + "/" + new Date().getFullYear() + " " + new Date().getHours() + ":" + new Date().getMinutes();
         products.filter(function(ele, index){
-            quantity += ele.quantity;
             amount += ele.quantity * ele.price;
         });
-        this.setState({products: products, quantity: quantity, amount: amount, date:date});
+        this.setState({products: products, quantity: store.getState().totalItems, amount: amount, date:date});
     }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
