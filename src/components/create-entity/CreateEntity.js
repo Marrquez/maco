@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CreateEntity.css';
 import store from '../../store';
-//import { accion1 } from '../../actionCreators';
+import { updateProduct } from '../../actionCreators';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,10 +10,12 @@ class CreateEntity extends Component {
     constructor(props) {
         super();
         this.state = {
+            id: '',
             name: '',
             description: '',
             category: '',
-            price: 0
+            price: 0,
+            creationDate: ''
         }
 
         store.subscribe(() => { });
@@ -22,6 +24,11 @@ class CreateEntity extends Component {
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
+    componentDidMount(){
+        if(this.props.data.id){
+            this.setState(this.props.data);
+        }
+    }
     setName(e){
         this.setState({name:e.target.value});
     }
@@ -41,26 +48,41 @@ class CreateEntity extends Component {
         var self = this;
         e.preventDefault();
         var newItem = {
-            "name": this.state.name,
+            //"id": this.state.id || '',
+            "name": self.state.name,
             "shop": store.getState().shop.id,
-            "creationDate": Date.now(),
+            "creationDate": self.state.creationDate,
             "category": null,//parseInt(this.state.category),
-            "price": parseInt(this.state.price)
+            "price": parseInt(self.state.price)
         };
+
+        if(self.state.id){
+            newItem.id = self.state.id;
+            newItem.creationDate = Date.now();
+        }
+
         axios.post(store.getState().baseUrl + "Item/saveItem/", newItem).then(function(response){
-            self.notify("El elemento se agregó correctamente.");
-            self.setState({
-                name: '',
-                description: '',
-                category: '',
-                price: 0
-            });
+            var msg = self.state.id ? "actualizó" : "creó";
+            self.notify("El elemento se " + msg + " correctamente.");
+            if(self.state.id){
+                if(store.getState().products.length > 0){
+                    store.dispatch(updateProduct(newItem));
+                }
+            }else {
+                self.setState({
+                    name: '',
+                    description: '',
+                    category: '',
+                    price: 0
+                });
+            }
         }).catch(error => {
             self.notify("No se pudo agregar el elemento");
         });
     }
   render() {
       var currentForm = null;
+      var buttonText = this.state.id ? "Actualizar" : "Crear";
 
       currentForm = <form className="form col-sm-6 create-entity" role="form" onSubmit={this.createEntity.bind(this)}>
           <div className="row">
@@ -100,7 +122,7 @@ class CreateEntity extends Component {
                   <option>5</option>
               </select>
           </div>
-          <button type="submit" className="btn btn-primary">Crear</button>
+          <button type="submit" className="btn btn-primary">{buttonText}</button>
       </form>;
 
       return (

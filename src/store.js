@@ -18,6 +18,20 @@ const setQuantity = (state, action) => {
     };
 }
 
+const updateProduct = (state, action) => {
+    var results = state.products.filter(function(ele, index){
+        if(action.valor.id === ele.id){
+            ele.name = action.valor.name;
+            ele.price = action.valor.price;
+        }
+        return ele;
+    });
+    return {
+        ...state,
+        products: state.products  = results
+    };
+}
+
 const addProduct = (state, action) => {
     var results = state.products.filter(function(ele, index){
         if(action.valor.id === ele.id){
@@ -77,6 +91,8 @@ const reducer = (state, action) => {
         setQuantity(state, action);
     }else if(action.type==='SET_SHOP'){
         setShop(state, action);
+    }else if(action.type==='ACTUALIZAR_PRODUCTO'){
+        updateProduct(state, action);
     }//else if(action.type==='...'){...}
 
     return state;

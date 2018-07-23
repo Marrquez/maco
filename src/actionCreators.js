@@ -19,6 +19,13 @@ const addProduct = (product) => {
     };
 };
 
+const updateProduct = (product) => {
+    return {
+        type: "ACTUALIZAR_PRODUCTO",
+        valor: product
+    };
+};
+
 const removeProduct = (product) => {
   return {
       type: "REMOVER_PRODUCTO",
@@ -40,4 +47,4 @@ const setShop = (shop) => {
     };
 };
 
-export { accion1, addProduct, removeProduct, clearParams, setShop, /*, accion2*/ };
+export { accion1, addProduct, removeProduct, clearParams, setShop, updateProduct /*, accion2*/ };

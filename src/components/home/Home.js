@@ -27,7 +27,8 @@ class Home extends Component {
         super();
         this.state = {
             user: {email:'', logged:false, data: {}},
-            page: "home"
+            page: "home",
+            currentItem: {}
         }
     }
     componentWillMount(){
@@ -95,7 +96,6 @@ class Home extends Component {
         var self = this;
         var database = firebase.database();
         let userId = this.state.user.data.uid;
-        console.log(store.getState().shop);
 
         database.ref('users/' + userId).set({
             username: name,
@@ -109,8 +109,8 @@ class Home extends Component {
             }
         });
     }
-    navigate(view){
-        this.setState({page: view});
+    navigate(view, data){
+        this.setState({page: view, currentItem: data});
     }
     setEnterprise(enterprise){
         store.dispatch(setShop(enterprise));
@@ -177,7 +177,9 @@ class Home extends Component {
           currentPage = <h4>v1.8102771</h4>;
               break;
           case "addProduct":
-              currentPage = <CreateEntity />;
+              var itemData = this.state.currentItem || {id:''};
+
+              currentPage = <CreateEntity data={itemData} />;
               break;
           case "getBill":
               currentPage = <Bill user={this.state.user} />;

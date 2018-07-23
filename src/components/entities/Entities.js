@@ -89,7 +89,7 @@ class Entities extends Component {
                   </div>
                   <div className="clear">
                       <i onClick={this.resetParams.bind(this)} className="fa fa-redo-alt"></i>
-                      <span onClick={this.resetParams.bind(this)} className="entities__actions-bill">Limpiar</span>
+                      <span onClick={this.resetParams.bind(this)} className="entities__actions-bill">Nueva</span>
                   </div>
               </div>;
           userLLinks =
@@ -148,7 +148,7 @@ class Entities extends Component {
                   {userRLinks}
               </div>
               { this.state.searchResults.map(function(product) {
-                  return <Entity  key={product.id} data={product}></Entity>;
+                  return <Entity  key={product.id} data={product} navigate={this.props.navigate}></Entity>;
               }.bind(this)) }
               <div className="modal fade" id="trolley" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div className="modal-dialog modal-dialog-centered" role="document">
