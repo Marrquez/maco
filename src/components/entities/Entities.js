@@ -28,6 +28,9 @@ class Entities extends Component {
 
         store.subscribe(() => {
             this.setState({totalItems: store.getState().totalItems, products: store.getState().products});
+            if(store.getState().products.length === 0){
+                this.setState({searchResults: []});
+            }
         });
     }
     componentDidUpdate(){ }
@@ -48,17 +51,19 @@ class Entities extends Component {
     applySearch(){
         var self = this;
         var results = [];
-        axios.get(store.getState().baseUrl + 'Item/search/', {
-            params: {
-                name: self.state.searchText, id: store.getState().shop.id
-            }
-        }).then(function(response){
-            results = response.data.filter(function(ele, index){
-                ele.quantity = 0;
-                return ele;
+        if(this.props.user.logged){
+            axios.get(store.getState().baseUrl + 'Item/search/', {
+                params: {
+                    name: self.state.searchText, id: store.getState().shop.id
+                }
+            }).then(function(response){
+                results = response.data.filter(function(ele, index){
+                    ele.quantity = 0;
+                    return ele;
+                });
+                self.setCurrentData(results);
             });
-            self.setCurrentData(results);
-        });
+        }
     }
     setCurrentData(data){
         this.setState({searchResults: data});
@@ -77,8 +82,8 @@ class Entities extends Component {
         store.dispatch(addProduct(product));
     }
   render() {
-      var userRLinks = null;
-      var userLLinks = null;
+      var userRLinks = <div className="col-sm-4 entities__actions"></div>;
+      var userLLinks = <div className="col-sm-4 entities__actions l"></div>;
       var modalContent = null;
       if(this.props.user.logged){
           userRLinks =
@@ -136,7 +141,7 @@ class Entities extends Component {
                       <i className="fa fa-search"></i>
                       <input type="text"
                              id="search-text-input"
-                             placeholder="Type to search..."
+                             placeholder="Escribe algo para buscar..."
                              value={this.state.searchText}
                              onChange={this.setSearchText.bind(this)}
                              onKeyPress={this.handleKeyPress.bind(this)}

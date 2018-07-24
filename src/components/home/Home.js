@@ -77,14 +77,14 @@ class Home extends Component {
     }
     signOutUser(params){
         firebase.auth().signOut().then(function() {
-            console.warn("The user was logged out!");
+
         }).catch(function(error) {
             // An error happened.
         });
     }
     logInUser(params){
         firebase.auth().signInWithEmailAndPassword(params.email, params.pswd).then(function(){
-            console.warn("The user was logged in!");
+
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

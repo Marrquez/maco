@@ -6,6 +6,8 @@ import firebase from "firebase/index";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { clearParams } from '../../actionCreators';
+
 
 class Profile extends Component {
     constructor(props) {
@@ -109,7 +111,7 @@ class Profile extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block">Save</button>
+                            <button type="submit" className="btn btn-primary btn-block">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -346,6 +348,7 @@ class NavBar extends Component {
     signOutUser(e){
         this.props.signOutUser({});
         this.setState({regUser:"connect"});
+        store.dispatch(clearParams({}));
     }
     navigate(view){
         this.props.navigate(view);
@@ -377,7 +380,7 @@ class NavBar extends Component {
                 <div className="col-xs-12 col-sm-12 col-md-12">
                     <i className="back-link fa fa-close" onClick={this.closeStatus.bind(this)} />
                     <Profile user={this.props.user} updateUser={this.props.updateUser} />
-                    <a className="back-link" onClick={this.signOutUser.bind(this)}>Logout</a>
+                    <a className="back-link" onClick={this.signOutUser.bind(this)}>Salir</a>
                 </div>
             </div>;
         }else if(this.state.regUser === "connect"){
@@ -450,14 +453,14 @@ class NavBar extends Component {
                   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul className="nav navbar-nav">
                           {userLinks}
-                          <li><a onClick={() => this.navigate("about")}>About</a></li>
+                          <li><a onClick={() => this.navigate("about")}>Nosotros</a></li>
                       </ul>
                       <ul className="nav navbar-nav navbar-right">
                           <li className="dropdown" ref={function(el){
                               this.dMenu = el;
                           }.bind(this)}>
                               <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                                  { this.props.user.logged ? "Welcome " + (this.props.user.email) : ("Login") }
+                                  { this.props.user.logged ? "Bienvenid@ " + (this.props.user.email) : ("Login") }
                                   <i className="fa fa-angle-down" />
                               </a>
                               <ul id="login-dp" className="dropdown-menu">

@@ -6,7 +6,8 @@ body {
 
 .btn {
   border: none !important;
-  border-radius: 3px !important;
+  border-radius: 1px !important;
+  outline: 0 !important;
 }
 
 .lbl {
