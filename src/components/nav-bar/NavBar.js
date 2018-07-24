@@ -438,7 +438,7 @@ class NavBar extends Component {
             userLinks = <li><a onClick={() => this.navigate("addProduct")}>Nuevo</a></li>;
         }
       return (
-          <nav className="navbar navbar-inverse navbar-default" role="navigation">
+          <nav className="navbar navbar-default" role="navigation">
               <div className="container-fluid">
                   <div className="navbar-header">
                       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

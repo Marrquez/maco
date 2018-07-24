@@ -25,7 +25,7 @@ class Entity extends Component {
   render() {
       let defaultImg = "https://vignette.wikia.nocookie.net/universosteven/images/4/48/Jerez-TV-Incognito.jpg/revision/latest/scale-to-width-down/2000?cb=20160810040810&path-prefix=es";
       return (
-          <div className="card col-6 col-sm-3 sol-lg-2 Entity">
+          <div className="card col-6 col-sm-3 sol-lg-3 Entity">
               {/*<img className="card-img-top" src={ this.props.data.mainPic === "" ? defaultImg : this.props.data.mainPic } />*/}
               <i className="fa fa-pen" onClick={() => this.navigate("addProduct", this.props.data)} ></i>
               <div className="card-body">

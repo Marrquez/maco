@@ -6,37 +6,46 @@
 .entities__search-bar {
     padding: 0;
     position: relative;
+    z-index: 1;
 }
 
 .entities__actions {
-    float: right;
     height: 35px;
     padding: 0;
-    position: relative;
-    text-align: right;
 }
 
-.entities__actions.l {
+.entities__actions .l {
     float: left;
 }
 
 .entities__actions i {
-    color: #008AC4;
     cursor: pointer;
     font-size: 20px;
-    height: 27px;
-    line-height: 27px;
-    text-align: center;
-    width: 50px;
 }
 
 .entities__actions .clear i,
 .entities__actions .clear span {
-    color: #C6000C;
+    color: #C5000C;
+}
+
+.entities__actions .primary i,
+.entities__actions .primary span {
+    color: #4984C5;
+}
+
+.entities__actions div i {
+    top: -5px;
 }
 
 .entities__actions > div:hover {
     opacity: .7;
+}
+
+.search-bar-container {
+    float: left;
+    padding: 0;
+    position: relative;
+    width: 100%;
 }
 
 .entities__actions > div {
@@ -45,12 +54,29 @@
     position: relative;
     width: 50px;
 }
-.entities__actions.l > div{
-    float: left;
+
+.entities__search-bar i,
+.entities__search-bar button {
+    bottom: 0;
+    color: #a9a9a9;
+    height: 30px;
+    line-height: 30px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 30px;
 }
+
+.entities__search-bar i.fa-search {
+    right: auto;
+}
+
 .entities__actions .entities__actions-bill {
     bottom: 0;
-    color: #008AC4;
+    color: #4984C5;
     cursor: pointer;
     font-size: 8px;
     position: absolute;
@@ -58,40 +84,23 @@
     width: 50px;
     text-align: center;
 }
-.entities__actions.l .entities__actions-bill{
-    font-size:10px;
-}
 
-.entities__search-bar i,
-.entities__search-bar button {
-    bottom: 0;
-    color: #e0e0e0;
-    height: 30px;
-    line-height: 30px;
-    left: 5px;
-    margin: auto;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 30px;
-}
 .entities__search-bar button {
     height: 29px;
     line-height: 29px;
     left: auto;
     padding: 0 10px;
-    right: 5px;
     width: 40px;
 }
 
 .entities__search-bar button i {
-    color: #008AC4;
+    color: #4984C5;
     height: 29px;
     line-height: 29px;
 }
 
 .entities__search-bar input {
-    border: 1px solid #e0e0e0;
+    border: 0.5px solid #a9a9a9;
     border-radius: 1px;
     height: 35px;
     line-height: 35px;
@@ -115,5 +124,5 @@
 }
 
 #trolley .modal-body .btn-default.blue i {
-    color: #008AC4;
+    color: #4984C5;
 }

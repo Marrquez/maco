@@ -84,22 +84,20 @@ class Entities extends Component {
   render() {
       var userRLinks = <div className="col-sm-4 entities__actions"></div>;
       var userLLinks = <div className="col-sm-4 entities__actions l"></div>;
+      var userLinks = null;
       var modalContent = null;
       if(this.props.user.logged){
-          userRLinks =
-              <div className="col-sm-4 entities__actions">
-                  <div>
+          userLinks =
+              <div className="col-sm-12 entities__actions">
+                  <div className="primary r">
                       <i onClick={() => this.navigate("getBill")} className="fa fa-file-invoice-dollar"></i>
                       <span onClick={() => this.navigate("getBill")} className="entities__actions-bill">Facturar</span>
                   </div>
-                  <div className="clear">
+                  <div className="clear r">
                       <i onClick={this.resetParams.bind(this)} className="fa fa-redo-alt"></i>
                       <span onClick={this.resetParams.bind(this)} className="entities__actions-bill">Nueva</span>
                   </div>
-              </div>;
-          userLLinks =
-              <div className="col-sm-4 entities__actions l">
-                  <div>
+                  <div className="primary l">
                       <i data-toggle="modal" data-target="#trolley" className="fa fa-shopping-cart"></i>
                       <span data-toggle="modal" data-target="#trolley" className="entities__actions-bill">{this.state.totalItems} items</span>
                   </div>
@@ -138,17 +136,20 @@ class Entities extends Component {
               <div className="entities__search-container col-sm-12">
                   {userLLinks}
                   <div className="entities__search-bar col-sm-4">
-                      <i className="fa fa-search"></i>
-                      <input type="text"
-                             id="search-text-input"
-                             placeholder="Escribe algo para buscar..."
-                             value={this.state.searchText}
-                             onChange={this.setSearchText.bind(this)}
-                             onKeyPress={this.handleKeyPress.bind(this)}
-                      />
-                      <button type="button"
-                        className="btn btn-link"
-                        onClick={this.applySearch.bind(this)}><i className="fa fa-search"></i></button>
+                      {userLinks}
+                      <div className="search-bar-container">
+                          <i className="fa fa-search"></i>
+                          <input type="text"
+                                 id="search-text-input"
+                                 placeholder="Escribe algo para buscar..."
+                                 value={this.state.searchText}
+                                 onChange={this.setSearchText.bind(this)}
+                                 onKeyPress={this.handleKeyPress.bind(this)}
+                          />
+                          <button type="button"
+                                  className="btn btn-link"
+                                  onClick={this.applySearch.bind(this)}><i className="fa fa-search"></i></button>
+                      </div>
                   </div>
                   {userRLinks}
               </div>

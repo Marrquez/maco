@@ -65,17 +65,17 @@ class Bill extends Component {
                                   <button className="btn btn-info"><i className="fa fa-print"></i></button>
                               </td>
                           </tr>
-                          <tr><td align="left">{this.props.user.data.name}</td></tr>
+                          <tr><td align="left">{this.props.user.data.enterprise.shopName}</td></tr>
                           <tr>
-                              <td align="left">{this.props.user.data.address}</td>
+                              <td align="left">NIT. {this.props.user.data.enterprise.nit}</td>
                               <td></td>
-                              <td align="right"><b>Fecha:</b></td>
+                              <td align="right"><b>Fecha: </b></td>
                               <td align="right" colSpan="2">
                                   {this.state.date}
                               </td>
                           </tr>
                           <tr>
-                              <td align="left">{this.props.user.data.location}</td>
+                              <td align="left">{this.props.user.data.enterprise.representative}</td>
                               <td></td>
                               <td align="right"><b>No.:</b></td>
                               <td align="right" colSpan="2">
