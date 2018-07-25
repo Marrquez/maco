@@ -1,12 +1,23 @@
 /**
 * Base
 */
-.Entities { }
+.Entities > div {
+    min-height: 70px;
+}
 
 .entities__search-bar {
     padding: 0;
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .entities__search-bar {
+        width: 90%;
+    }
 }
 
 .entities__actions {
@@ -20,7 +31,7 @@
 
 .entities__actions i {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .entities__actions .clear i,
@@ -125,4 +136,9 @@
 
 #trolley .modal-body .btn-default.blue i {
     color: #4984C5;
+}
+
+.entities__actions div.r span,
+.entities__actions div.l span {
+    font-size: 10px;
 }

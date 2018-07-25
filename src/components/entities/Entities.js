@@ -78,12 +78,9 @@ class Entities extends Component {
         store.dispatch(removeProduct(product));
     }
     addProduct(product){
-        product.quantity += 1;
         store.dispatch(addProduct(product));
     }
   render() {
-      var userRLinks = <div className="col-sm-4 entities__actions"></div>;
-      var userLLinks = <div className="col-sm-4 entities__actions l"></div>;
       var userLinks = null;
       var modalContent = null;
       if(this.props.user.logged){
@@ -132,10 +129,9 @@ class Entities extends Component {
           </table>;
       }
       return (
-          <div className="container-fluid">
-              <div className="entities__search-container col-sm-12">
-                  {userLLinks}
-                  <div className="entities__search-bar col-sm-4">
+          <div className="container-fluid Entities">
+              <div className="col-sm-12">
+                  <div className="entities__search-bar">
                       {userLinks}
                       <div className="search-bar-container">
                           <i className="fa fa-search"></i>
@@ -151,7 +147,6 @@ class Entities extends Component {
                                   onClick={this.applySearch.bind(this)}><i className="fa fa-search"></i></button>
                       </div>
                   </div>
-                  {userRLinks}
               </div>
               { this.state.searchResults.map(function(product) {
                   return <Entity  key={product.id} data={product} navigate={this.props.navigate}></Entity>;

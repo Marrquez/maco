@@ -18,11 +18,8 @@ class Footer extends Component {
   render() {
       return (
           <div className="Footer">
-              <div className="col-sm-6 col-md-6 l">
-                  <h5>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></h5>
-              </div>
-              <div className="col-sm-6 col-md-6 r">
-                  <h5>hecho en Colombia</h5>
+              <div className="sign">
+                  <h5>Powered by <a href="http://www.twitter.com/warrdnez" target="_blank">@warrdnez</a></h5><h5>, hecho en Colombia</h5>
               </div>
           </div>
       );

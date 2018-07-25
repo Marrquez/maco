@@ -35,12 +35,19 @@ const updateProduct = (state, action) => {
 const addProduct = (state, action) => {
     var results = state.products.filter(function(ele, index){
         if(action.valor.id === ele.id){
+            ele.quantity +=1;
             return ele;
         }
     });
+
+    if(results.length ===  0){
+        action.valor.quantity += 1;
+        state.products.push(action.valor);
+    }
+
     return {
         ...state,
-        products: results.length > 0 ? state.products : state.products.push(action.valor)
+        products: state.products
     };
 }
 

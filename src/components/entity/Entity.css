@@ -21,18 +21,21 @@
 }
 
 .Entity .fa-pen {
+    border: 0.5px solid #ccc;
+    border-radius: 50%;
     color: #ddd;
     cursor: pointer;
     height: 30px;
     line-height: 30px;
     position: absolute;
-    right: 0;
+    right: 3px;
     text-align: center;
-    top: 0;
+    top: 2px;
     width: 30px;
 }
 
-.Entity .fa-pen:hover{
+.Entity .fa-pen:hover {
+    border: 0.5px solid #3071a9;
     color: #3071a9;
 }
 

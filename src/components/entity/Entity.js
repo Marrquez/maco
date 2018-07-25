@@ -16,7 +16,6 @@ class Entity extends Component {
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
     addProduct(){
-        this.props.data.quantity += 1;
         store.dispatch(addProduct(this.props.data));
     }
     navigate(view, data){
