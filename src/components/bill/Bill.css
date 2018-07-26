@@ -32,9 +32,17 @@
     cursor: pointer;
     font-size: 12px;
     padding: 0 3px;
-    width: 50%;
+    width: 90%;
 }
 
 .Bill .info tr .client-data:focus {
     border-bottom: 1px solid #299999;
+}
+
+.Bill .info tr .client-data.bill-number {
+    width: 50%;
+}
+
+.Bill .info tr .client-data.full {
+    width: 100%;
 }

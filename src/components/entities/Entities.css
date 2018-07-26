@@ -131,6 +131,7 @@
 #trolley .modal-header .close {
     float: left;
     margin-top: 0;
+    outline: none;
     width: 9%;
 }
 
@@ -141,4 +142,12 @@
 .entities__actions div.r span,
 .entities__actions div.l span {
     font-size: 10px;
+}
+
+.modal-header {
+    background: #f8f8f8;
+}
+
+.modal-content {
+    border-radius: 0;
 }

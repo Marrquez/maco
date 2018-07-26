@@ -372,6 +372,9 @@ class NavBar extends Component {
         this.props.setEnterprise(name);
         this.setState({regUser:"login"});
     }
+    getBills(){
+        console.log("Show all bills");
+    }
   render() {
         var currentForm = null;
         var userLinks = null;
@@ -435,7 +438,10 @@ class NavBar extends Component {
             </div>;
         }
         if(this.props.user.logged){
-            userLinks = <li><a onClick={() => this.navigate("addProduct")}>Nuevo</a></li>;
+            userLinks = <ul className="nav navbar-nav">
+                <li><a onClick={() => this.navigate("addProduct")}>Nuevo</a></li>
+                <li><a onClick={this.getBills.bind(this)} data-toggle="modal" data-target="#mybills" >Facturas</a></li>
+            </ul>;
         }
       return (
           <nav className="navbar navbar-default" role="navigation">
@@ -451,8 +457,8 @@ class NavBar extends Component {
                   </div>
 
                   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      {userLinks}
                       <ul className="nav navbar-nav">
-                          {userLinks}
                           <li><a onClick={() => this.navigate("about")}>Nosotros</a></li>
                       </ul>
                       <ul className="nav navbar-nav navbar-right">
@@ -470,6 +476,24 @@ class NavBar extends Component {
                               </ul>
                           </li>
                       </ul>
+                  </div>
+              </div>
+              <div className="modal fade" id="mybills" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div className="modal-dialog modal-dialog-centered" role="document">
+                      <div className="modal-content">
+                          <div className="modal-header">
+                              <h5 className="modal-title" id="exampleModalLongTitle">Mis facturas</h5>
+                              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div className="modal-body">
+                              ...
+                          </div>
+                          <div className="modal-footer">
+                              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                      </div>
                   </div>
               </div>
           </nav>
