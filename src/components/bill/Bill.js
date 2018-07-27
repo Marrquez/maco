@@ -134,7 +134,7 @@ class Bill extends Component {
                               <td></td>
                               <td align="right"><b>No.:</b></td>
                               <td align="right" colSpan="2">
-                                  <input type="text"
+                                  <input type="number"
                                          className="form-control client-data bill-number"
                                          id="billNumber"
                                          readOnly={this.state.isSaved}
@@ -171,7 +171,7 @@ class Bill extends Component {
                                   </select>
                               </td>
                               <td align="left">
-                                  <input type="text"
+                                  <input type="number"
                                          className="form-control client-data"
                                          id="clientNit"
                                          readOnly={this.state.isSaved}
@@ -197,7 +197,7 @@ class Bill extends Component {
                           <tr>
                               <td align="left"><b>Teléfono:</b></td>
                               <td align="left">
-                                  <input type="text"
+                                  <input type="number"
                                          className="form-control client-data"
                                          id="clientPhone"
                                          placeholder="Teléfono"
@@ -209,9 +209,11 @@ class Bill extends Component {
                               </td>
                               <td align="left"><b>Correo: </b></td>
                               <td align="right" colSpan="3">
-                                  <input type="text"
+                                  <input type="email"
                                          className="form-control client-data"
                                          id="clientMail"
+                                         pattern=".+@."
+                                         title="Must be a valid email address"
                                          readOnly={this.state.isSaved}
                                          placeholder="Correo electrónico"
                                          value={this.state.mail}
