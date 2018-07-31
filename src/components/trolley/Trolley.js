@@ -40,7 +40,8 @@ class Trolley extends Component {
     }
   render() {
       var userLinks = null;
-      if(this.props.user.logged){
+      var titlePrefix = "items ";
+      if(this.props.user.logged && store.getState().products.length > 0){
           userLinks =
               <div className="entities__actions">
                   <div className="primary r" onClick={() => this.navigate("getBill")}>
@@ -53,12 +54,16 @@ class Trolley extends Component {
                   </div>
               </div>;
       }
+
+      if(store.getState().products.length === 1){
+          titlePrefix = "item ";
+      }
       return (
           <div className="Trolley">
               <div className="trolley-header">
                   <span className="trolley-header_counter icon">{this.state.totalItems}</span>
                   <div className="trolley-header_title">
-                      <span className="icon subtitle">items en el carrito</span>
+                      <span className="icon subtitle">{titlePrefix}en el carrito</span>
                   </div>
                   {userLinks}
               </div>
