@@ -105,4 +105,4 @@ const reducer = (state, action) => {
     return state;
 }
 
-export default createStore(reducer, {products:[],totalItems: 0, user1: '1', user2:'2',baseUrl:'http://localhost:8080/Alfilsoft/Api/v1/', shop:{}});
+export default createStore(reducer, {products:[],totalItems: 0, user1: '1', user2:'2',baseUrl:'http://localhost:8085/Alfilsoft/Api/v1/', shop:{}});

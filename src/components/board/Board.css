@@ -1,4 +1,7 @@
 /**
 * Base
 */
-.Board { }
+.Board {
+    padding: 0 15px 0 200px;
+    position: relative;
+}

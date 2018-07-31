@@ -21,6 +21,7 @@
 }
 
 .Entity .fa-pen {
+    background: #F8F8F8;
     border: 0.5px solid #ccc;
     border-radius: 50%;
     color: #ddd;

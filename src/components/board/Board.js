@@ -3,6 +3,7 @@ import './Board.css';
 import store from '../../store';
 import { accion1 } from '../../actionCreators';
 import Entities from '../entities/Entities';
+import Trolley from '../trolley/Trolley';
 
 class Board extends Component {
     constructor(props) {
@@ -22,8 +23,9 @@ class Board extends Component {
     }
   render() {
       return (
-          <div className="container">
+          <div className="container-fluid Board">
               <Entities navigate={this.props.navigate} user={this.props.user}></Entities>
+              <Trolley navigate={this.props.navigate} user={this.props.user}></Trolley>
           </div>
       );
   }

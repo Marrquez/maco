@@ -2,7 +2,7 @@
 * Base
 */
 .Entities > div {
-    min-height: 70px;
+    min-height: 50px;
 }
 
 .entities__search-bar {
@@ -21,6 +21,7 @@
 }
 
 .entities__actions {
+    float: right;
     height: 35px;
     padding: 0;
 }
@@ -31,12 +32,12 @@
 
 .entities__actions i {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .entities__actions .clear i,
 .entities__actions .clear span {
-    color: #C5000C;
+    color: #777;
 }
 
 .entities__actions .primary i,
@@ -44,9 +45,7 @@
     color: #4984C5;
 }
 
-.entities__actions div i {
-    top: -5px;
-}
+.entities__actions div i { }
 
 .entities__actions > div:hover {
     opacity: .7;
@@ -63,7 +62,7 @@
     float: right;
     min-height: 35px;
     position: relative;
-    width: 50px;
+    width: 35px;
 }
 
 .entities__search-bar i,
@@ -86,13 +85,13 @@
 }
 
 .entities__actions .entities__actions-bill {
-    bottom: 0;
+    bottom: 3px;
     color: #4984C5;
     cursor: pointer;
     font-size: 8px;
     position: absolute;
     right: 0;
-    width: 50px;
+    width: 35px;
     text-align: center;
 }
 
@@ -119,29 +118,9 @@
     width: 100%;
 }
 
-#trolley .modal-header {
-    height: 50px;
-}
-
-#trolley .modal-header .modal-title {
-    float: left;
-    width: 90%;
-}
-
-#trolley .modal-header .close {
-    float: left;
-    margin-top: 0;
-    outline: none;
-    width: 9%;
-}
-
-#trolley .modal-body .btn-default.blue i {
-    color: #4984C5;
-}
-
 .entities__actions div.r span,
 .entities__actions div.l span {
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .modal-header {

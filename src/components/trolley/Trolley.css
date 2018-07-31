@@ -1,0 +1,122 @@
+/**
+* Base
+*/
+.Trolley {
+    height: 100%;
+    left: 15px;
+    position: absolute;
+    top: 0;
+    width: 190px;
+}
+
+.Trolley .trolley-header {
+    border-bottom: 0.5px solid #a9a9a9;
+    height: 35px;
+    padding: 0 0 0 35px;
+    position: relative;
+}
+
+.Trolley .icon {
+    bottom: 0;
+    height: 35px;
+    line-height: 35px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: auto;
+    text-align: center;
+    top: 0;
+    width: 30px;
+}
+
+.Trolley .fa-bars {
+    cursor: pointer;
+    left: auto;
+    right: 0;
+    width: 20px;
+}
+
+.Trolley .trolley-header_counter {
+    color: #FFD667;
+    font-size: 26px;
+    text-shadow:-1px -1px 0px #333,
+                0px -1px 0px #333,
+                1px -1px 0px #333,
+                -1px 0px 0px #333,
+                1px 0px 0px #333,
+                -1px 1px 0px #333,
+                0px 1px 0px #333,
+                1px 1px 0px #333;
+}
+
+.Trolley .subtitle {
+    bottom: 0;
+    font-size: 10px;
+    height: 25px;
+    line-height: 8px;
+    margin: auto;
+    top:0;
+}
+
+.Trolley .fa-shopping-cart {
+    color: #4984C5;
+    font-size: 16px;
+    height: 25px;
+    margin: 0;
+    line-height: 25px;
+}
+
+.Trolley .trolley-header_title {
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+
+.Trolley .trolley-body ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.Trolley .trolley-body ul li {
+    background: #F8F8F8;
+    border: 0.5px solid #a9a9a9;
+    margin-top: 5px;
+    min-height: 30px;
+    line-height: normal;
+    padding: 3px 40px 0 5px;
+    position: relative;
+    text-align: left;
+}
+
+.Trolley .btn {
+    bottom: 0;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    margin:auto;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 20px;
+}
+
+.Trolley .btn-add {
+    right: 20px;
+}
+
+.Trolley .btn-remove {
+    color: #777;
+}
+
+.Trolley .price {
+    font-size: 10px;
+}
+
+.Trolley .name {
+    font-size: 13px;
+}
