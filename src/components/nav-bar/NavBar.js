@@ -71,7 +71,7 @@ class Profile extends Component {
                             <input type="text"
                                    className="form-control"
                                    id="userAddress"
-                                   placeholder="Address"
+                                   placeholder="Dirección"
                                    value={this.state.address}
                                    onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setAddress.bind(this)}
@@ -82,7 +82,7 @@ class Profile extends Component {
                             <input type="text"
                                    className="form-control"
                                    id="userLocation"
-                                   placeholder="City"
+                                   placeholder="Ciudad"
                                    value={this.state.location}
                                    onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setLocation.bind(this)}
@@ -103,7 +103,7 @@ class Profile extends Component {
                             <textarea type="text"
                                    className="form-control user-description"
                                    id="userDescription"
-                                   placeholder="Describe yourself"
+                                   placeholder="Descríbete!"
                                    value={this.state.description}
                                    onKeyPress={this.handleKeyPress.bind(this)}
                                    onChange={this.setDescription.bind(this)}

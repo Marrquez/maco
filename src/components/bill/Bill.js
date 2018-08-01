@@ -100,7 +100,7 @@ class Bill extends Component {
         var buttons = null;
         if(!this.state.isSaved){
             buttons = <td align="right">
-                <button onClick={this.saveBill.bind(this)} className="btn btn-success">Finalizar</button>
+                <button onClick={this.saveBill.bind(this)} className="btn btn-success">Guardar</button>
                 {/*<button className="btn btn-info"><i className="fa fa-print"></i></button>*/}
             </td>
         }

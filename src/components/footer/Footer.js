@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Footer.css';
+import col from '../../assets/col.png';
 
 class Footer extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Footer extends Component {
       return (
           <div className="Footer">
               <div className="sign">
-                  <h5>Powered by <a href="http://www.twitter.com/warrdnez" rel="noopener noreferrer" target="_blank">@warrdnez</a></h5><h5>, hecho en Colombia</h5>
+                  <h5>Powered by <a href="http://www.twitter.com/warrdnez" rel="noopener noreferrer" target="_blank">@warrdnez</a></h5><h5>, <img src={col} alt='Hecho en Colombia' /> Colombia</h5>
               </div>
           </div>
       );

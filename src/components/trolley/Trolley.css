@@ -9,6 +9,12 @@
     width: 190px;
 }
 
+@media only screen and (max-width: 600px) {
+    .Trolley {
+        width: 140px;
+    }
+}
+
 .Trolley .trolley-header {
     border-bottom: 0.5px solid #c9c9c9;
     height: 35px;
