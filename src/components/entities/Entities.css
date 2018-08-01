@@ -43,7 +43,7 @@
 
 .entities__actions .primary i,
 .entities__actions .primary span {
-    color: #4984C5;
+    color: #777;
 }
 
 .entities__actions div i { }
@@ -111,11 +111,11 @@
 }
 
 .entities__search-bar input {
-    border: 0.5px solid #a9a9a9;
+    border: 0.5px solid #c9c9c9;
     border-radius: 1px;
     height: 35px;
     line-height: 35px;
-    padding: 0 45px 0 30px;
+    padding: 0 45px 0 10px;
     width: 100%;
 }
 

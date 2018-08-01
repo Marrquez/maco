@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="de9cd414-c252-406b-a84a-1daf85b6744f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/bill/Bill.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bill/Bill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/board/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/board/Board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/create-entity/CreateEntity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/create-entity/CreateEntity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Entities.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Entities.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/entities/Entities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entities/Entities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/entity/Entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/entity/Entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/nav-bar/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav-bar/NavBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/trolley/Trolley.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trolley/Trolley.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/trolley/Trolley.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trolley/Trolley.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -84,8 +76,8 @@
           <file leaf-file-name="Trolley.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/trolley/Trolley.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+                <state relative-caret-position="412">
+                  <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -136,17 +128,17 @@
           <file leaf-file-name="Entities.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/entities/Entities.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+                <state relative-caret-position="396">
+                  <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Entities.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Entities.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/entities/Entities.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+                <state relative-caret-position="208">
+                  <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -157,8 +149,8 @@
           <file leaf-file-name="Entity.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/entity/Entity.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+                <state relative-caret-position="312">
+                  <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -196,11 +188,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Trolley.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Trolley.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/trolley/Trolley.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1260">
-                  <caret line="105" column="1" lean-forward="true" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
+                <state relative-caret-position="376">
+                  <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -290,18 +282,18 @@
         <option value="$PROJECT_DIR$/src/components/trolley/Footer.css" />
         <option value="$PROJECT_DIR$/src/components/trolley/Trolley.test.js" />
         <option value="$PROJECT_DIR$/src/components/entity/Entity.css" />
-        <option value="$PROJECT_DIR$/src/components/trolley/Trolley.css" />
-        <option value="$PROJECT_DIR$/src/components/entities/Entities.css" />
         <option value="$PROJECT_DIR$/src/components/entity/Entity.js" />
         <option value="$PROJECT_DIR$/src/components/bill/Bill.js" />
         <option value="$PROJECT_DIR$/src/components/create-entity/CreateEntity.js" />
         <option value="$PROJECT_DIR$/src/components/nav-bar/NavBar.js" />
         <option value="$PROJECT_DIR$/src/components/home/Home.js" />
         <option value="$PROJECT_DIR$/src/store.js" />
-        <option value="$PROJECT_DIR$/src/components/trolley/Trolley.js" />
         <option value="$PROJECT_DIR$/src/components/board/Board.js" />
         <option value="$PROJECT_DIR$/src/components/footer/Footer.js" />
+        <option value="$PROJECT_DIR$/src/components/entities/Entities.css" />
         <option value="$PROJECT_DIR$/src/components/entities/Entities.js" />
+        <option value="$PROJECT_DIR$/src/components/trolley/Trolley.js" />
+        <option value="$PROJECT_DIR$/src/components/trolley/Trolley.css" />
       </list>
     </option>
   </component>
@@ -356,69 +348,6 @@
               <item name="maco" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="bill" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="board" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="create-entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="footer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="nav-bar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="maco" type="b2602c69:ProjectViewProjectNode" />
-              <item name="maco" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="maco" type="b2602c69:ProjectViewProjectNode" />
@@ -500,12 +429,12 @@
       <workItem from="1532615881247" duration="7312000" />
       <workItem from="1532709050418" duration="1335000" />
       <workItem from="1533077568275" duration="508000" />
-      <workItem from="1533132022179" duration="3952000" />
+      <workItem from="1533132022179" duration="6580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208447000" />
+    <option name="totallyTimeSpent" value="211075000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,11 +454,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5024665" side_tool="true" weight="0.32952926" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32853025" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49753347" visible="true" weight="0.3261851" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49753347" weight="0.3261851" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49753347" weight="0.33182845" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49753347" visible="true" weight="0.33182845" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -776,24 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/entity/Entity.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/board/Board.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/trolley/Trolley.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="105" column="1" lean-forward="true" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -880,28 +795,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/entities/Entities.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/trolley/Trolley.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="396">
+          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/entities/Entities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="208">
+          <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/trolley/Trolley.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/entity/Entity.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/trolley/Trolley.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -84,33 +84,47 @@
     background: #F8F8F8;
     border: 0.5px solid #a9a9a9;
     margin-top: 5px;
-    min-height: 30px;
+    min-height: 50px;
     line-height: normal;
-    padding: 3px 40px 0 5px;
+    padding: 3px 25px 0 5px;
     position: relative;
     text-align: left;
 }
 
-.Trolley .btn {
+.Trolley .custom-btn {
+    border: 0.5px solid #b9b9b9;
+    border-radius: 50%;
     bottom: 0;
-    font-size: 12px;
-    height: 30px;
-    line-height: 30px;
-    margin:auto;
+    color: #777;
+    font-size: 10px;
+    height: 20px;
+    line-height: 20px;
+    margin:0;
     padding: 0;
     position: absolute;
-    right: 0;
+    right: 3px;
     text-align: center;
     top: 0;
     width: 20px;
 }
 
 .Trolley .btn-add {
-    right: 20px;
+    top: 3px;
+}
+
+.Trolley .btn-add:hover {
+    border: 0.5px solid #3071a9;
+    color: #3071a9;
 }
 
 .Trolley .btn-remove {
     color: #777;
+    top: 26px;
+}
+
+.Trolley .btn-remove:hover {
+    border: 0.5px solid #CC0100;
+    color: #CC0100;
 }
 
 .Trolley .price {

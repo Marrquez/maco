@@ -75,10 +75,10 @@ class Trolley extends Component {
                               <b><span>{product.quantity} </span></b>
                               <span className="name">{product.name}</span>
                               <br />
-                              <span className="price">${product.price} c/u</span>
-                              <a className="btn btn-add blue" onClick={() => this.addProduct(product)}>
-                                  <i className="fa fa-plus-circle"></i></a>
-                              <a className="btn btn-remove" onClick={() => this.removeProduct(product)}>
+                              <span className="price">${product.price} (<b>${product.price * product.quantity}</b>)</span>
+                              <a className="custom-btn btn-add" onClick={() => this.addProduct(product)}>
+                                  <i className="fa fa-plus"></i></a>
+                              <a className="custom-btn btn-remove" onClick={() => this.removeProduct(product)}>
                                   <i className="fa fa-minus"></i></a>
                           </li>;
                       }.bind(this)) }

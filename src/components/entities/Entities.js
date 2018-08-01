@@ -62,7 +62,6 @@ class Entities extends Component {
               <div className="col-sm-12">
                   <div className="entities__search-bar">
                       <div className="search-bar-container">
-                          <i className="fa fa-search"></i>
                           <input type="text"
                                  id="search-text-input"
                                  placeholder="Escribe algo para buscar..."
