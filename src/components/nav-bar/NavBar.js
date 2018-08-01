@@ -51,10 +51,7 @@ class Profile extends Component {
     render(){
         return <div className="NavBar well-sm">
             <div className="row">
-                <div className="col-sm-6 col-md-4">
-                    <i alt="" className="fa fa-question-circle img-responsive"></i>
-                </div>
-                <div className="col-sm-6 col-md-8 user-profile-data">
+                <div className="col-sm-12 col-md-12 user-profile-data">
                     <form className="form" onSubmit={this.updateUser.bind(this)} id="login-nav">
                         <div className="form-group">
                             <input type="text"
@@ -458,7 +455,7 @@ class NavBar extends Component {
                               this.dMenu = el;
                           }.bind(this)}>
                               <a href="" className="dropdown-toggle" data-toggle="dropdown">
-                                  { this.props.user.logged ? "Bienvenid@ " + (this.props.user.email) : ("Login") }
+                                  { this.props.user.logged ? (this.props.user.email) : ("Login") }
                                   <i className="fa fa-angle-down" />
                               </a>
                               <ul id="login-dp" className="dropdown-menu">
