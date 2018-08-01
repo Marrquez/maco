@@ -11,15 +11,17 @@ class Entities extends Component {
             searchText: '',
             searchResults: []
         }
-
-        store.subscribe(() => {
+    }
+    componentDidMount(){
+        this.unsubscribe = store.subscribe(() => {
             if(store.getState().products.length === 0){
                 this.setState({searchResults: []});
             }
         });
     }
-    componentDidUpdate(){ }
-    componentDidMount(){ }
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }

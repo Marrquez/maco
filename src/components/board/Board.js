@@ -10,11 +10,8 @@ class Board extends Component {
         super();
         this.state = { }
 
-        store.subscribe(() => {
-            //this.setState({username: store.getState().user1});
-        });
+        store.subscribe(() => { });
     }
-    componentDidUpdate(){ }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }

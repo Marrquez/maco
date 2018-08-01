@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Bill.css';
 import store from '../../store';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Bill extends Component {
@@ -31,6 +31,7 @@ class Bill extends Component {
         var date = new Date();
         products.filter(function(ele, index){
             amount += ele.quantity * ele.price;
+            return [];
         });
         this.setState({products: products, quantity: store.getState().totalItems, amount: amount, date:date});
     }
@@ -246,7 +247,7 @@ class Bill extends Component {
                                   <td className="col-sm-1" align="right">${product.price}</td>
                                   <td className="col-sm-1" align="right">${product.quantity * product.price}</td>
                               </tr>;
-                          }.bind(this)) }
+                          }) }
                           <tr className="total-label" >
                               <td align="right" colSpan="6"><b>Totales</b></td>
                           </tr>

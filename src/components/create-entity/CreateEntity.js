@@ -3,7 +3,7 @@ import './CreateEntity.css';
 import store from '../../store';
 import { updateProduct } from '../../actionCreators';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class CreateEntity extends Component {
@@ -20,7 +20,6 @@ class CreateEntity extends Component {
 
         store.subscribe(() => { });
     }
-    componentDidUpdate(){ }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
     componentDidUpdate(prevProps, prevState){ }
@@ -53,7 +52,7 @@ class CreateEntity extends Component {
             "shop": store.getState().shop.id,
             "creationDate": self.state.creationDate,
             "category": null,//parseInt(this.state.category),
-            "price": parseInt(self.state.price)
+            "price": parseInt(self.state.price, 10)
         };
 
         if(self.state.id){
@@ -84,7 +83,7 @@ class CreateEntity extends Component {
       var currentForm = null;
       var buttonText = this.state.id ? "Actualizar" : "Crear";
 
-      currentForm = <form className="form col-sm-6 create-entity" role="form" onSubmit={this.createEntity.bind(this)}>
+      currentForm = <form className="form col-sm-6 create-entity" onSubmit={this.createEntity.bind(this)}>
           <div className="row">
               <label className="col-sm-4 lbl" htmlFor="inputCity">Nombre</label>
               <input type="text"

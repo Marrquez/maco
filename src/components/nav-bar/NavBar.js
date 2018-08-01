@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import logo from '../../maco-icon.png';
 import './NavBar.css';
 import store from '../../store';
-import firebase from "firebase/index";
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { clearParams } from '../../actionCreators';
 
@@ -56,7 +55,7 @@ class Profile extends Component {
                     <i alt="" className="fa fa-question-circle img-responsive"></i>
                 </div>
                 <div className="col-sm-6 col-md-8 user-profile-data">
-                    <form className="form" onSubmit={this.updateUser.bind(this)} role="form" id="login-nav">
+                    <form className="form" onSubmit={this.updateUser.bind(this)} id="login-nav">
                         <div className="form-group">
                             <input type="text"
                                    className="form-control user-name"
@@ -143,7 +142,7 @@ class LoginForm extends Component {
         this.setState({pswd:e.target.value});
     }
     render(){
-        return <form className="form" role="form" onSubmit={this.logInUser.bind(this)} id="login-nav">
+        return <form className="form" onSubmit={this.logInUser.bind(this)} id="login-nav">
             <div className="form-group">
                 <label className="sr-only" htmlFor="exampleInputEmail2">Email address</label>
                 <input type="email"
@@ -151,7 +150,6 @@ class LoginForm extends Component {
                        id="exampleInputEmail2"
                        placeholder="Email address"
                        required
-                       value
                        value={this.state.email}
                        onChange={this.setEmail.bind(this)}
                 />
@@ -190,7 +188,7 @@ class RecoverForm extends Component {
         this.setState({email:e.target.value});
     }
     render(){
-        return <form className="form" role="form" onSubmit={this.recoverPswd.bind(this)} id="login-nav">
+        return <form className="form" onSubmit={this.recoverPswd.bind(this)} id="login-nav">
             <div className="form-group">
                 <label className="sr-only" htmlFor="exampleInputEmail2">Email address</label>
                 <input type="email"
@@ -198,7 +196,6 @@ class RecoverForm extends Component {
                        id="exampleInputEmail2"
                        placeholder="Email address"
                        required
-                       value
                        value={this.state.email}
                        onChange={this.setEmail.bind(this)}
                 />
@@ -229,7 +226,7 @@ class RegisterForm extends Component {
         this.setState({pswd:e.target.value});
     }
     render(){
-        return <form className="form" role="form" onSubmit={this.signInUser.bind(this)} id="login-nav">
+        return <form className="form" onSubmit={this.signInUser.bind(this)} id="login-nav">
             <div className="form-group">
                 <label className="sr-only" htmlFor="exampleInputEmail2">Email address</label>
                 <input type="email"
@@ -237,7 +234,6 @@ class RegisterForm extends Component {
                        id="exampleInputEmail2"
                        placeholder="Email address"
                        required
-                       value
                        value={this.state.email}
                        onChange={this.setEmail.bind(this)}
                 />
@@ -286,7 +282,7 @@ class SearchEnterprise extends Component {
         this.setState({name:e.target.value});
     }
     render(){
-        return <form className="form col-sm-8 col-md-8" role="form" onSubmit={this.getEnterprise.bind(this)} id="connect-nav">
+        return <form className="form col-sm-8 col-md-8" onSubmit={this.getEnterprise.bind(this)} id="connect-nav">
             <div className="form-group">
                 <label className="sr-only" htmlFor="exampleInputEmail2">Nombre</label>
                 <input type="text"
@@ -294,7 +290,6 @@ class SearchEnterprise extends Component {
                        id="exampleInputEmail2"
                        placeholder="Nombre"
                        required
-                       value
                        value={this.state.name}
                        onChange={this.setName.bind(this)}
                 />
@@ -341,9 +336,6 @@ class NavBar extends Component {
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){
         //console.log("B");
-    }
-    componentDidUpdate(prevProps, prevState){
-        //console.log("C");
     }
     signOutUser(e){
         this.props.signOutUser({});
@@ -444,7 +436,7 @@ class NavBar extends Component {
             </ul>;
         }
       return (
-          <nav className="navbar navbar-default" role="navigation">
+          <nav className="navbar navbar-default">
               <div className="container-fluid">
                   <div className="navbar-header">
                       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -465,7 +457,7 @@ class NavBar extends Component {
                           <li className="dropdown" ref={function(el){
                               this.dMenu = el;
                           }.bind(this)}>
-                              <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                              <a href="" className="dropdown-toggle" data-toggle="dropdown">
                                   { this.props.user.logged ? "Bienvenid@ " + (this.props.user.email) : ("Login") }
                                   <i className="fa fa-angle-down" />
                               </a>

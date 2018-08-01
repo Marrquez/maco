@@ -11,6 +11,7 @@ const setQuantity = (state, action) => {
     var quantity = 0;
     state.products.filter(function(ele, index){
         quantity += ele.quantity;
+        return [];
     });
     return {
         ...state,
@@ -33,12 +34,14 @@ const updateProduct = (state, action) => {
 }
 
 const addProduct = (state, action) => {
-    var results = state.products.filter(function(ele, index){
-        if(action.valor.id === ele.id){
-            ele.quantity +=1;
-            return ele;
+    var results = [];
+
+    for(var i = 0; i < state.products.length; i++){
+        if(action.valor.id === state.products[i].id){
+            state.products[i].quantity +=1;
+            results.push(state.products[i]);
         }
-    });
+    }
 
     if(results.length ===  0){
         action.valor.quantity += 1;

@@ -11,14 +11,15 @@ class Trolley extends Component {
             totalItems: 0,
             products: []
         }
-
-        store.subscribe(() => {
+    }
+    componentDidMount(){
+        this.setState({totalItems: store.getState().totalItems, products: store.getState().products});
+        this.unsubscribe = store.subscribe(() => {
             this.updateData();
         });
     }
-    componentDidUpdate(){ }
-    componentDidMount(){
-        this.setState({totalItems: store.getState().totalItems, products: store.getState().products});
+    componentWillUnmount() {
+        this.unsubscribe();
     }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }
@@ -74,7 +75,7 @@ class Trolley extends Component {
                               <b><span>{product.quantity} </span></b>
                               <span className="name">{product.name}</span>
                               <br />
-                              <span className="price"> (${product.price} c/u)</span>
+                              <span className="price">${product.price} c/u</span>
                               <a className="btn btn-add blue" onClick={() => this.addProduct(product)}>
                                   <i className="fa fa-plus-circle"></i></a>
                               <a className="btn btn-remove" onClick={() => this.removeProduct(product)}>
