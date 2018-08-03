@@ -448,7 +448,7 @@ class NavBar extends Component {
                   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       {userLinks}
                       <ul className="nav navbar-nav">
-                          <li><a onClick={() => this.navigate("about")}>Nosotros</a></li>
+                          <li><a onClick={() => this.navigate("about")} className="fa fa-info"></a></li>
                       </ul>
                       <ul className="nav navbar-nav navbar-right">
                           <li className="dropdown" ref={function(el){
