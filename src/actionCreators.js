@@ -47,4 +47,11 @@ const setShop = (shop) => {
     };
 };
 
-export { accion1, addProduct, removeProduct, clearParams, setShop, updateProduct /*, accion2*/ };
+const setProducts = (products) => {
+    return {
+        type: "SET_PRODUCTS",
+        valor: products
+    };
+};
+
+export { accion1, addProduct, removeProduct, clearParams, setShop, updateProduct, setProducts /*, accion2*/ };

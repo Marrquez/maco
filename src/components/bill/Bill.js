@@ -4,6 +4,7 @@ import store from '../../store';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {setProducts} from '../../actionCreators';
 
 class Bill extends Component {
     constructor(props) {
@@ -26,14 +27,46 @@ class Bill extends Component {
         store.subscribe(() => { });
     }
     componentDidMount(){
-        var products = store.getState().products;
+        var self = this;
+        var products = [];
         var amount = 0;
+        var quantity = 0;
         var date = new Date();
-        products.filter(function(ele, index){
-            amount += ele.quantity * ele.price;
-            return [];
-        });
-        this.setState({products: products, quantity: store.getState().totalItems, amount: amount, date:date});
+
+        if(self.props.data && self.props.data.id){
+            axios.get(store.getState().baseUrl + 'ItemDetail/details/' + self.props.data.id).then(function(response){
+                for(var i = 0; i < response.data.length; i++){
+                    var ele = response.data[i];
+                    amount += ele.quantity * ele.item.price;
+                    ele.item.quantity = ele.quantity;
+                    quantity += ele.quantity;
+                    products.push(ele.item);
+                }
+                store.dispatch(setProducts(products));
+
+                self.setState({
+                    products: products,
+                    quantity: quantity,
+                    amount: amount,
+                    date:new Date(self.props.data.bill.creationDate),
+                    name: self.props.data.bill.client.client,
+                    nit: self.props.data.bill.client.idClient,
+                    phone: '',
+                    address: '',
+                    mail: '',
+                    docType: self.props.data.bill.client.idType,
+                    billNumber: self.props.data.bill.billNumber,
+                    isSaved: true
+                });
+            });
+        }else {
+            products = store.getState().products;
+            for(var i = 0; i < products.length; i++){
+                var ele = products[i];
+                amount += ele.quantity * ele.price;
+            }
+            self.setState({products: products, quantity: store.getState().totalItems, amount: amount, date:date});
+        }
     }
     componentWillReceiveProps(nextProps){ }
     componentWillUpdate(nextProps, nextState){ }

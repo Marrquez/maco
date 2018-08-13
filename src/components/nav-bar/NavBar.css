@@ -28,6 +28,14 @@
     text-align: center;
     width: 30px;
 }
+
+.navbar .modal-body {
+    display: inline-block;
+}
+
+.navbar .modal-body .detail tr {
+    cursor: pointer;
+}
 /**
 * theming
 **

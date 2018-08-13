@@ -33,6 +33,13 @@ const updateProduct = (state, action) => {
     };
 }
 
+const setProducts = (state, action) => {
+    return {
+        ...state,
+        products: state.products
+    };
+}
+
 const addProduct = (state, action) => {
     var results = [];
 
@@ -103,6 +110,9 @@ const reducer = (state, action) => {
         setShop(state, action);
     }else if(action.type==='ACTUALIZAR_PRODUCTO'){
         updateProduct(state, action);
+    }else if(action.type==='SET_PRODUCTOS'){
+        setProducts(state, action);
+        setQuantity(state, action);
     }//else if(action.type==='...'){...}
 
     return state;

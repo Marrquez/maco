@@ -303,7 +303,8 @@ class NavBar extends Component {
         super();
         this.state = {
             regUser: "connect",
-            enterprise: ''
+            enterprise: '',
+            bills: []
         }
 
         store.subscribe(() => {
@@ -339,8 +340,8 @@ class NavBar extends Component {
         this.setState({regUser:"connect"});
         store.dispatch(clearParams({}));
     }
-    navigate(view){
-        this.props.navigate(view);
+    navigate(view, data){
+        this.props.navigate(view, data);
     }
     goBack(view){
         this.setState({regUser:view});
@@ -362,7 +363,10 @@ class NavBar extends Component {
         this.setState({regUser:"login"});
     }
     getBills(){
-        console.log("Show all bills");
+        var self = this;
+        axios.get(store.getState().baseUrl + 'Bill/bills/' + store.getState().shop.id).then(function(response){
+            self.setState({bills: response.data});
+        });
     }
   render() {
         var currentForm = null;
@@ -477,7 +481,26 @@ class NavBar extends Component {
                               </button>
                           </div>
                           <div className="modal-body">
-                              ...
+                              <table className="table col-sm-12 table-hover detail">
+                                  <thead>
+                                    <tr>
+                                        <th align="center">No.</th>
+                                        <th align="center">Fecha</th>
+                                        <th align="center">Cliente</th>
+                                        <th align="center">ID</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    { this.state.bills.map(function(bill){
+                                        return <tr key={bill.id} onClick={() => this.navigate("getBill", {id: bill.id, bill: bill})} data-dismiss="modal" >
+                                            <td className="col-sm-2">{bill.billNumber}</td>
+                                            <td align="left" className="col-sm-4">{(new Date(bill.creationDate)).getDate()  + "/" + ((new Date(bill.creationDate)).getMonth()+1) + "/" + (new Date(bill.creationDate)).getFullYear() + " " + (new Date(bill.creationDate)).getHours() + ":" + (new Date(bill.creationDate)).getMinutes()}</td>
+                                            <td align="left" className="col-sm-4">{bill.client.client}</td>
+                                            <td className="col-sm-2">{bill.client.idType}. {bill.client.idClient}</td>
+                                        </tr>;
+                                    }.bind(this)) }
+                                  </tbody>
+                              </table>
                           </div>
                           <div className="modal-footer">
                               <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

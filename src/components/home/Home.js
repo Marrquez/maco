@@ -169,20 +169,23 @@ class Home extends Component {
     }
   render() {
       var currentPage = null;
+      var itemData = null;
       switch(this.state.page) {
           case "home":
               currentPage = <Board navigate={this.navigate.bind(this)} user={this.state.user} />;
               break;
           case "about":
-          currentPage = <h4>v1.8102771</h4>;
+              currentPage = <h4>v1.8102771</h4>;
               break;
           case "addProduct":
-              var itemData = this.state.currentItem || {id:''};
+              itemData = this.state.currentItem || {id:''};
 
               currentPage = <CreateEntity data={itemData} />;
               break;
           case "getBill":
-              currentPage = <Bill user={this.state.user} />;
+              itemData = this.state.currentItem || {id:''};
+
+              currentPage = <Bill user={this.state.user} data={itemData} />;
               break;
           default:
               currentPage = <Board navigate={this.navigate.bind(this)} user={this.state.user} />;
